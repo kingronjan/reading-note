@@ -125,8 +125,17 @@ RestartPreventExitStatus=23
 WantedBy=multi-user.target
 ' > /etc/systemd/system/v2ray.service 
 
-systemctl daemon-reload 
-systemctl status v2ray
+systemctl daemon-reload
+systemctl enable v2ray
+systemctl start v2ray
+```
+
+生成 gfwlist.action:
+
+```shell
+curl -4sSkLO https://raw.github.com/zfl9/gfwlist2privoxy/master/gfwlist2privoxy
+bash gfwlist2privoxy 127.0.0.1:10808
+mv -f gfwlist.action /etc/privoxy/
 ```
 
 配置 privoxy:
@@ -136,14 +145,6 @@ apt install -y privoxy
 sudo cp /etc/privoxy/config /etc/privoxy/config.bak
 sudo cat /etc/privoxy/config | grep -v '^#' | grep -v '::1' > /etc/privoxy/config 
 sudo echo 'actionsfile gfwlist.action' >> /etc/privoxy/config 
-```
-
-生成 gfwlist.action:
-
-```shell
-curl -4sSkLO https://raw.github.com/zfl9/gfwlist2privoxy/master/gfwlist2privoxy
-bash gfwlist2privoxy 127.0.0.1:10808
-mv -f gfwlist.action /etc/privoxy/
 ```
 
 重启 privoxy:
