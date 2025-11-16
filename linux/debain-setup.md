@@ -163,3 +163,21 @@ systemctl restart privoxy.service
 
 配置手动代理，所有类型的地址都填写为 `127.0.0.1:8118`
 
+## 剪贴板
+
+安装 gpaste:
+
+```shell
+sudo apt install gpaste-2
+```
+
+启动 ui 界面：
+
+```shell
+gpaste-client ui
+```
+
+像 windows 一样使用 (`windows` + `v`)，参考：[Gpaste - wsttask - 博客园](https://www.cnblogs.com/wsttask/p/18647329)
+
+1. 配置快捷键 设置->键盘->查看和自定义快捷键 
+2. 添加快捷键 命令为 `/usr/bin/gpaste-client ui`，按键为 `windows + v`
