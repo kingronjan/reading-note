@@ -210,3 +210,44 @@ Extension Manager         Install GNOME Extensions         com.mattjakeman.Exten
 $ flatpak install com.mattjakeman.ExtensionManager
 ```
 
+
+## docker
+
+参考：[Debian / Ubuntu 安装 Docker 以及 Docker Compose 教程 - 烧饼博客](https://u.sb/debian-install-docker/)
+
+安装（切换到 root 执行）：
+
+```shell
+apt update
+apt upgrade -y
+
+# 安装依赖应用
+apt install curl vim wget gnupg dpkg apt-transport-https lsb-release ca-certificates
+
+# 添加镜像源
+curl -sSL https://download.docker.com/linux/debian/gpg | gpg --dearmor > /usr/share/keyrings/docker-ce.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-ce.gpg] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian $(lsb_release -sc) stable" > /etc/apt/sources.list.d/docker.list
+
+
+# 安装 docker
+apt update
+apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+```
+
+让非 root 用户以 rootless 运行，切换到非 root 用户下执行:
+
+```shell
+# 安装 rootless
+apt install docker-ce-rootless-extras
+
+# 加入组
+sudo usermod -aG docker <user>
+
+# 检查环境依赖
+dockerd-rootless-setuptool.sh check
+
+# 根据检查结果执行提示的命令
+
+# 安装到当前用户
+dockerd-rootless-setuptool.sh install
+```
