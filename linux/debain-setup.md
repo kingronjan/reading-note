@@ -181,3 +181,32 @@ gpaste-client ui
 
 1. 配置快捷键 设置->键盘->查看和自定义快捷键 
 2. 添加快捷键 命令为 `/usr/bin/gpaste-client ui`，按键为 `windows + v`
+
+## flatpak
+
+参考：[Linux捣鼓记录：安装flatpak软件仓库，更换国内镜像 - lwlnice - 博客园](https://www.cnblogs.com/lwlnice/p/18263967)
+
+vinarios 默认有安装 flatpak，可以在命令行输入 `flatpak` 验证。
+
+更换为国内源：
+
+```shell
+# 中科大镜像
+flatpak remote-modify flathub --url=https://mirrors.ustc.edu.cn/flathub
+
+# 恢复官方源
+# flatpak remote-modify flathub --url=https://dl.flathub.org/repo
+```
+
+安装 Extension Manager：
+
+```shell
+# 先搜索
+$ flatpak search "extension manager"
+名称                      描述                             应用程序 ID                              版本          分支           远程仓库
+Extension Manager         Install GNOME Extensions         com.mattjakeman.ExtensionManager         0.6.5         stable         flathub
+
+# 安装时使用应用程序 ID
+$ flatpak install com.mattjakeman.ExtensionManager
+```
+
