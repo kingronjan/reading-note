@@ -251,3 +251,19 @@ dockerd-rootless-setuptool.sh check
 # 安装到当前用户
 dockerd-rootless-setuptool.sh install
 ```
+
+## ondriver
+
+参考：
+
+- [jstaf/onedriver: A native Linux filesystem for Microsoft OneDrive](https://github.com/jstaf/onedriver)
+- [安装软件包 home:jstaf / onedriver](https://software.opensuse.org/download.html?project=home%3Ajstaf&package=onedriver)
+
+```shell
+echo 'deb http://download.opensuse.org/repositories/home:/jstaf/Debian_12/ /' | sudo tee /etc/apt/sources.list.d/home:jstaf.list
+curl -fsSL https://download.opensuse.org/repositories/home:jstaf/Debian_12/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_jstaf.gpg > /dev/null
+sudo apt update
+sudo apt install onedriver
+```
+
+安装后打开，选择挂载的文件夹，登录即可开始同步。
