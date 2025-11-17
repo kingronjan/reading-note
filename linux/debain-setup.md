@@ -224,8 +224,8 @@ apt upgrade -y
 # 安装依赖应用
 apt install curl vim wget gnupg dpkg apt-transport-https lsb-release ca-certificates
 
-# 添加镜像源
-curl -sSL https://download.docker.com/linux/debian/gpg | gpg --dearmor > /usr/share/keyrings/docker-ce.gpg
+# 添加镜像源（清华源）
+curl -sSL https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian/gpg | gpg --dearmor > /usr/share/keyrings/docker-ce.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-ce.gpg] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian $(lsb_release -sc) stable" > /etc/apt/sources.list.d/docker.list
 
 
@@ -234,14 +234,34 @@ apt update
 apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 ```
 
+如果遇到源不可用也可以替换为其他源：
+
+- 华为: mirrors.huaweicloud.com
+- 163: mirrors.163.com
+- 中科大：mirrors.ustc.edu.cn
+- 交大：mirror.bjtu.edu.cn
+- 兰州大学：mirror.lzu.edu.cn
+- 教育网：mirror.nju.edu.cn
+- 北外: mirrors.bfsu.edu.cn
+
+只需要将上面的 `mirrors.tuna.tsinghua.edu.cn` 改为要用的域名即可，比如使用华为源：
+
+```shell
+curl -sSL https://mirrors.huaweicloud.com/docker-ce/linux/debian/gpg | gpg --dearmor > /usr/share/keyrings/docker-ce.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-ce.gpg] https://mirrors.huaweicloud.com/docker-ce/linux/debian $(lsb_release -sc) stable" > /etc/apt/sources.list.d/docker.list
+```
+
 让非 root 用户以 rootless 运行，切换到非 root 用户下执行:
 
 ```shell
+# 先停止使用 root 启动的 dockerd
+sudo systemctl stop docker
+
 # 安装 rootless
-apt install docker-ce-rootless-extras
+sudo apt install docker-ce-rootless-extras
 
 # 加入组
-sudo usermod -aG docker <user>
+sudo usermod -aG docker $(whoami)
 
 # 检查环境依赖
 dockerd-rootless-setuptool.sh check
