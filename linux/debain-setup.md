@@ -310,3 +310,7 @@ sudo apt install onedriver
 ```
 
 安装后打开，选择挂载的文件夹，登录即可开始同步。
+
+## gnome 插件
+
+- [G-dH/custom-hot-corners-extended](https://github.com/G-dH/custom-hot-corners-extended)  扩展屏幕四个角的热点功能 
