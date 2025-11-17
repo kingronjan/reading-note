@@ -314,3 +314,14 @@ sudo apt install onedriver
 ## gnome 插件
 
 - [G-dH/custom-hot-corners-extended](https://github.com/G-dH/custom-hot-corners-extended)  扩展屏幕四个角的热点功能 
+
+## 禁用切换桌面快捷键
+
+See: [11.10 - How do I disable Ctrl+Alt+Left/Right? - Ask Ubuntu](https://askubuntu.com/questions/82007/how-do-i-disable-ctrlaltleft-right)
+
+`ctrl` + `alt` + `left`/`right` 默认会切换桌面，个人很少用到，不过在代码编辑器中比较习惯使用该快捷键作为前进后退的快捷键，使用下面的命令禁用默认的切换桌面快捷键：
+
+```shell
+ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "['']"
+ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "['']"
+```
