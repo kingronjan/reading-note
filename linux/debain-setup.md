@@ -213,7 +213,11 @@ $ flatpak install com.mattjakeman.ExtensionManager
 
 ## docker
 
-参考：[Debian / Ubuntu 安装 Docker 以及 Docker Compose 教程 - 烧饼博客](https://u.sb/debian-install-docker/)
+参考:
+
+- [Debian / Ubuntu 安装 Docker 以及 Docker Compose 教程 - 烧饼博客](https://u.sb/debian-install-docker/)
+- [Debian 12 Linux(bookworm) 容器镜像使用国内镜像源](https://www.zzxworld.com/posts/cn-mirrors-for-debian-12-linux)
+- [镜像加速器 · Docker -- 从入门到实践](https://docker-practice.github.io/zh-cn/install/mirror.html)
 
 安装（切换到 root 执行）：
 
@@ -270,6 +274,25 @@ dockerd-rootless-setuptool.sh check
 
 # 安装到当前用户
 dockerd-rootless-setuptool.sh install
+```
+
+以下配置会增加一段自定义内网 IPv6 地址，开启容器的 IPv6 功能，以及限制日志文件大小，防止 Docker 日志塞满硬盘：
+
+```shell
+cat > /etc/docker/daemon.json << EOF
+{
+    "log-driver": "json-file",
+    "log-opts": {
+        "max-size": "20m",
+        "max-file": "3"
+    },
+    "userland-proxy": false,
+    "ipv6": true,
+    "fixed-cidr-v6": "fdb::/64",
+    "experimental":true,
+    "ip6tables":true
+}
+EOF
 ```
 
 ## ondriver
