@@ -39,3 +39,16 @@ gem install jekyll bundler
 ```shell
 echo "export PATH=\$PATH:~/.local/share/gem/ruby/3.3.0/bin/" >> ~/.bash_profile
 ```
+
+在项目中使用 bundle 命令时报错：
+```
+Bundler::PermissionError: There was an error while trying to write to `/var/lib/gems/3.3.0/cache`. It is likely that you need to grant write
+permissions for that path.
+```
+
+参考 [ruby - How to fix permission error while install bundle for rails project on ubuntu? - Stack Overflow](https://stackoverflow.com/questions/77770696/how-to-fix-permission-error-while-install-bundle-for-rails-project-on-ubuntu) 配置 bundle 安装时使用的路径，配置为有权限写入的路径：
+
+```shell
+bundle config path ~/data/gemcache
+```
+
