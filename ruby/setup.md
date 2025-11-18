@@ -49,6 +49,5 @@ permissions for that path.
 参考 [ruby - How to fix permission error while install bundle for rails project on ubuntu? - Stack Overflow](https://stackoverflow.com/questions/77770696/how-to-fix-permission-error-while-install-bundle-for-rails-project-on-ubuntu) 配置 bundle 安装时使用的路径，配置为有权限写入的路径：
 
 ```shell
-bundle config path ~/data/gemcache
+bundle config path ~/data/ruby-bundle
 ```
-
