@@ -42,6 +42,30 @@ patch:
 ```
 主要是设置 `reset: 1`
 
+设置中文输入状态下，输入英文时按 `shift` 直接将英文上屏，然后切换到英文状态输入：
+
+修改 `~/.config/ibus/rime/build/default.yaml` 中的 `ascii_composer.switch_key.Shift_L` 为 `commit_code`：
+
+```yaml
+ascii_composer:
+  good_old_caps_lock: true
+  switch_key:
+    Caps_Lock: clear
+    Control_L: noop
+    Control_R: noop
+    Eisu_toggle: clear
+    Shift_L: commit_code
+    Shift_R: commit_text
+```
+
+该配置的可选项参考：[使用 Control 鍵切換中西文，上屏已輸入的編碼；令 Caps Lock 改變字母的大小寫](https://gist.github.com/lotem/2981316)
+
+- inline_ascii 在輸入法的臨時西文編輯區內輸入字母、數字、符號、空格等，回車上屏後自動復位到中文
+- commit_text 已輸入的候選文字上屏並切換至西文輸入模式
+- commit_code 已輸入的編碼字符上屏並切換至西文輸入模式
+- noop，屏蔽該切換鍵
+
+
 ## gnome 终端配置
 
 **使用鼠标中键粘贴**
