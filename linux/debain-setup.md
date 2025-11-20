@@ -352,3 +352,41 @@ See: [11.10 - How do I disable Ctrl+Alt+Left/Right? - Ask Ubuntu](https://askubu
  gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "['']"
  gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "['']"
 ```
+
+## 将 home 目录下的文件夹设置为英文
+
+参考：[如何将 Home 目录下的文件夹设置为英文 – Mogeko's Blog](https://mogeko.me/zh-cn/posts/zh-cn/060/)
+
+
+修改 `~/.config/user-dirs.dirs` 文件内容为：
+
+```shell
+# This file is written by xdg-user-dirs-update
+# If you want to change or add directories, just edit the line you're
+# interested in. All local changes will be retained on the next run.
+# Format is XDG_xxx_DIR="$HOME/yyy", where yyy is a shell-escaped
+# homedir-relative path, or XDG_xxx_DIR="/yyy", where /yyy is an
+# absolute path. No other format is supported.
+# 
+XDG_DESKTOP_DIR="$HOME/Desktop"
+XDG_DOWNLOAD_DIR="$HOME/Downloads"
+XDG_TEMPLATES_DIR="$HOME/Templates"
+XDG_PUBLICSHARE_DIR="$HOME/Public"
+XDG_DOCUMENTS_DIR="$HOME/Documents"
+XDG_MUSIC_DIR="$HOME/Music"
+XDG_PICTURES_DIR="$HOME/Pictures"
+XDG_VIDEOS_DIR="$HOME/Videos"
+```
+
+重命名原来的文件夹：
+
+```shell
+mv $HOME/桌面 $HOME/Desktop
+mv $HOME/下载 $HOME/Downloads
+mv $HOME/模板 $HOME/Templates
+mv $HOME/公共 $HOME/Public
+mv $HOME/文档 $HOME/Documents
+mv $HOME/音乐 $HOME/Music
+mv $HOME/图片 $HOME/Pictures
+mv $HOME/视频 $HOME/Videos
+```
