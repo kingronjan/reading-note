@@ -218,6 +218,9 @@ vinarios 默认有安装 flatpak，可以在命令行输入 `flatpak` 验证。
 # 中科大镜像
 flatpak remote-modify flathub --url=https://mirrors.ustc.edu.cn/flathub
 
+# 上海交大 see: https://mirror.sjtu.edu.cn/docs/flathub
+# flatpak remote-modify flathub --url=https://mirror.sjtu.edu.cn/flathub
+
 # 恢复官方源
 # flatpak remote-modify flathub --url=https://dl.flathub.org/repo
 ```
