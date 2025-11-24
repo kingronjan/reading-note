@@ -341,6 +341,8 @@ sudo apt install onedriver
 ## gnome 插件
 
 - [G-dH/custom-hot-corners-extended](https://github.com/G-dH/custom-hot-corners-extended)  扩展屏幕四个角的热点功能 
+- [Blur my Shell - GNOME Shell Extensions](https://extensions.gnome.org/extension/3193/blur-my-shell/) 让状态栏，dock 栏，以及 gnome shell 等应用高斯模糊
+- [Lock Keys - GNOME Shell Extensions](https://extensions.gnome.org/extension/36/lock-keys/) 在状态栏显示大写锁定和数字键盘锁定的状态
 
 ## 禁用切换桌面快捷键
 
