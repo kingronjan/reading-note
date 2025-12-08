@@ -26,3 +26,22 @@
 参考：
 - [Stop Using Django's squashmigrations: There's a Better Way | Johnny Metz](https://johnnymetz.com/posts/squash-django-migrations/)
 
+
+## 安全迁移
+
+上线删除或重命名字段这类数据库变更时，一旦遇到错误，很难回退到之前的版本，这时可以使用更安全的做法，以减少此类错误。
+
+- 对于删除字段：
+
+    1. 先将字段设置为 nullable，上线运行
+    2. 在运行没有异常后，可以在下个版本删除该字段
+
+- 对于重命名字段
+
+    1. 创建一个新字段用来作为过渡，除名称外其他属性与之前的字段保持一致
+    2. 更新所有写入/更新操作中涉及新字段的逻辑，让其同步更新老字段的值
+    3. 在运行没有异常后，可以在下个版本删除老字段
+
+对于表级别的操作，同样也可以参考上述思路。
+
+来自：[Loopwerk: Safe Django migrations without server errors](https://www.loopwerk.io/articles/2025/safe-django-db-migrations/?utm_campaign=Django%2BNewsletter&utm_medium=email&utm_source=Django_Newsletter_314)
