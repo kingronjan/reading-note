@@ -3,9 +3,6 @@ site_description: A collection of my reading notes on various topics.
 repo_url: https://github.com/kingronjan/reading-note
 repo_name: kingronjan/reading-note
 
-docs_dir: .
-site_dir: _site
-
 theme:
   name: material
   # logo: images/logo.png

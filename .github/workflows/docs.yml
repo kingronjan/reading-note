@@ -19,7 +19,11 @@ jobs:
       - name: Install dependencies
         run: |
           pip install mkdocs-material pymdown-extensions
-
+      - name: Prepare source files
+        run: |
+          mkdir docs
+          shopt -s extglob
+          mv !(docs|mkdocs.yml|.git|.github|site|_site) docs/
       - name: Build docs
         run: mkdocs build
 
@@ -27,4 +31,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
+          publish_dir: ./site
