@@ -23,8 +23,18 @@ def create_nav_entry(path):
         # It's a directory, create a nested structure
         title = os.path.basename(path).replace('-', ' ').replace('_', ' ').title()
         
-        # Get children, filter out excluded and non-markdown files
-        children = [os.path.join(path, child) for child in sorted(os.listdir(path))]
+        # Get children, and separate them into dirs and files to ensure dirs come first
+        child_items = sorted(os.listdir(path))
+        dirs = []
+        files = []
+        for item in child_items:
+            child_path = os.path.join(path, item)
+            if os.path.isdir(child_path):
+                dirs.append(child_path)
+            elif item.endswith('.md'):
+                files.append(child_path)
+
+        children = dirs + files
         
         nav_children = []
         for child in children:
@@ -60,17 +70,28 @@ def main():
     root_items = sorted(os.listdir('.'))
     nav_structure = []
 
-    # First, add top-level markdown files
+    # Separate directories and files to ensure dirs come first
+    dirs = []
+    files = []
     for item in root_items:
-        if item.endswith('.md') and item not in EXCLUDED_PATHS:
-            nav_structure.append(item)
-            
-    # Then, add directories
-    for item in root_items:
-        if os.path.isdir(item) and item not in EXCLUDED_PATHS:
+        if item in EXCLUDED_PATHS:
+            continue
+        if os.path.isdir(item):
+            dirs.append(item)
+        elif item.endswith('.md'):
+            files.append(item)
+
+    # Process directories first
+    for item in dirs:
+        if item not in EXCLUDED_PATHS:
             entry = create_nav_entry(item)
             if entry:
                 nav_structure.append(entry)
+
+    # Then, add top-level markdown files
+    for item in files:
+        if item not in EXCLUDED_PATHS:
+            nav_structure.append(item)
 
     # Change back to the project root to access mkdocs.yml
     os.chdir('..')
