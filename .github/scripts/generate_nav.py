@@ -17,6 +17,37 @@ EXCLUDED_PATHS = [
     "CNAME"
 ]
 
+def find_first_md_path(nav_structure):
+    """
+    Recursively finds the path of the first markdown file in the nav_structure.
+    The nav_structure is a list of dictionaries, where each dict can have:
+    - {'Title': 'path/to/file.md'}
+    - {'DirectoryTitle': [{'SubTitle': 'path/to/subfile.md'}, ...]}
+    """
+    if not nav_structure:
+        return None
+
+    first_entry = nav_structure[0]
+    if isinstance(first_entry, dict):
+        for key, value in first_entry.items():
+            if isinstance(value, str) and value.endswith('.md'):
+                return value
+            elif isinstance(value, list):
+                # Recurse into nested list (directory content)
+                nested_path = find_first_md_path(value)
+                if nested_path:
+                    return nested_path
+    return None
+
+def redirect_path_to_url(md_path):
+    """
+    Converts a markdown file path (e.g., 'ai/gemini.md') to an MkDocs URL format
+    (e.g., 'ai/gemini/').
+    """
+    if md_path.endswith('.md'):
+        return md_path[:-3] + '/'
+    return md_path
+
 def create_nav_entry(path):
     """Create a navigation entry for a given path."""
     if os.path.isdir(path):
@@ -95,13 +126,27 @@ def main():
     # Add the generated nav to the config
     config['nav'] = nav_structure
 
+    # Find the first markdown file path for redirection
+    first_md_path = find_first_md_path(nav_structure)
+    if first_md_path:
+        # Convert markdown path to a URL-friendly format for redirect
+        redirect_url = redirect_path_to_url(first_md_path)
+        
+        # Create an index.md in the docs directory that redirects to the first item
+        # Change back to the docs directory to write index.md
+        os.chdir(docs_dir)
+        with open('index.md', 'w', encoding='utf-8') as f:
+            f.write(f'<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv="refresh" content="0; url=/{redirect_url}">\n</head>\n<body>\n<p>Redirecting to <a href="/{redirect_url}">{redirect_url}</a></p>\n</body>\n</html>')
+        os.chdir('..') # Change back to the project root
+
     with open(MKDOCS_YML_PATH, 'w', encoding='utf-8') as f:
         yaml.dump(config, f, allow_unicode=True, sort_keys=False)
 
     print("Successfully generated and updated the navigation in mkdocs.yml")
 
+    # Print the updated mkdocs.yml content for verification
     with open(MKDOCS_YML_PATH, 'r', encoding='utf-8') as f:
-        print(f.read())  # Print the updated mkdocs.yml content
+        print(f.read())
 
 if __name__ == "__main__":
     main()
