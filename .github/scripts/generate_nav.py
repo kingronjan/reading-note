@@ -2,6 +2,7 @@ import yaml
 import os
 
 MKDOCS_YML_PATH = "mkdocs.yml"
+TODO_MD_FILENAME = "todo.md"
 
 # Files or directories to exclude from the navigation
 EXCLUDED_PATHS = [
@@ -118,16 +119,19 @@ def main():
     # Separate directories and files to ensure dirs come first
     dirs = []
     files = []
+    todo_items = []
     for item in root_items:
         if item in EXCLUDED_PATHS:
             continue
         if os.path.isdir(item):
             dirs.append(item)
+        elif item == TODO_MD_FILENAME:
+            todo_items.append(item)
         elif item.endswith(".md"):
             files.append(item)
 
-    # Process directories first, then files
-    all_items = dirs + files
+    # Process todo first, then directories, then files
+    all_items = todo_items + dirs + files
     for item in all_items:
         entry = create_nav_entry(item)
         if entry:
