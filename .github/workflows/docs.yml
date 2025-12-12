@@ -21,6 +21,11 @@ jobs:
       - name: Install dependencies
         run: |
           pip install mkdocs-material pymdown-extensions PyYAML
+      - name: Prepare source files
+        run: |
+          mkdir docs
+          shopt -s extglob
+          mv !(docs|mkdocs.yml|.git|.github|site|_site) docs/
       - name: Generate nav
         run: |
           python .github/scripts/generate_nav.py

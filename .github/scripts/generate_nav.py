@@ -47,7 +47,7 @@ def main():
     with open('mkdocs.yml', 'r', encoding='utf-8') as f:
         config = yaml.safe_load(f)
 
-    root_items = sorted(os.listdir('.'))
+    root_items = sorted(os.listdir('./docs'))
     nav_structure = []
 
     # First, add top-level markdown files
@@ -63,7 +63,7 @@ def main():
                 nav_structure.append(entry)
 
     # Add the generated nav to the config under a single top-level key
-    config['nav'] = [{'笔记': nav_structure}]
+    config['nav'] = [{'Notes': nav_structure}]
 
     with open('mkdocs.yml', 'w', encoding='utf-8') as f:
         yaml.dump(config, f, allow_unicode=True, sort_keys=False)
