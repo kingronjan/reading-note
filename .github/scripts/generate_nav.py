@@ -50,8 +50,9 @@ def create_nav_entry(path):
             
         return {title: nav_children}
     elif path.endswith('.md'):
-        # It's a markdown file
-        return path
+        # It's a markdown file, create a title from the filename
+        title = os.path.basename(path)[:-3].replace('-', ' ').replace('_', ' ').title()
+        return {title: path}
     return None
 
 def main():
@@ -81,17 +82,12 @@ def main():
         elif item.endswith('.md'):
             files.append(item)
 
-    # Process directories first
-    for item in dirs:
-        if item not in EXCLUDED_PATHS:
-            entry = create_nav_entry(item)
-            if entry:
-                nav_structure.append(entry)
-
-    # Then, add top-level markdown files
-    for item in files:
-        if item not in EXCLUDED_PATHS:
-            nav_structure.append(item)
+    # Process directories first, then files
+    all_items = dirs + files
+    for item in all_items:
+        entry = create_nav_entry(item)
+        if entry:
+            nav_structure.append(entry)
 
     # Change back to the project root to access mkdocs.yml
     os.chdir('..')
