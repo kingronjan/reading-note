@@ -96,8 +96,8 @@ def main():
     # Change back to the project root to access mkdocs.yml
     os.chdir('..')
 
-    # Add the generated nav to the config under a single top-level key
-    config['nav'] = [{'Notes': nav_structure}]
+    # Add the generated nav to the config
+    config['nav'] = nav_structure
 
     with open(MKDOCS_YML_PATH, 'w', encoding='utf-8') as f:
         yaml.dump(config, f, allow_unicode=True, sort_keys=False)
