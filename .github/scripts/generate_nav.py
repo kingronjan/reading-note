@@ -52,7 +52,10 @@ def redirect_path_to_url(md_path):
 
 def as_title(path):
     """Convert a file or directory path to a human-readable title."""
-    return os.path.basename(path)
+    title = os.path.basename(path)
+    if title.endswith(".md"):
+        title = title[:-3]  # Remove the .md extension
+    return title
 
 
 def create_nav_entry(path):
