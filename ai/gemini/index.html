@@ -10,13 +10,11 @@
       
       
       
-        <link rel="canonical" href="https://kingronjan.github.io/reading-note/django/orm_usages/">
+        <link rel="canonical" href="https://kingronjan.github.io/reading-note/ai/gemini/">
       
       
-        <link rel="prev" href="../migration/">
       
-      
-        <link rel="next" href="../../docker/%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E9%95%9C%E5%83%8F/">
+        <link rel="next" href="../%E5%86%99%E5%A5%BDclaude.md%E6%96%87%E4%BB%B6/">
       
       
         
@@ -27,7 +25,7 @@
     
     
       
-        <title>Orm Usages - reading-note</title>
+        <title>Gemini - reading-note</title>
       
     
     
@@ -78,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#mysql" class="md-skip">
+        <a href="#gemini-cli" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Orm Usages
+              Gemini
             
           </span>
         </div>
@@ -223,11 +221,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../ai/gemini/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -283,13 +283,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../migration/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../django/migration/" class="md-tabs__link">
           
   
   
@@ -586,26 +584,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
         
           
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   
@@ -623,7 +626,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -638,10 +641,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../ai/gemini/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gemini
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -657,6 +687,345 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tip-1-geminimd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 1: 使用 GEMINI.md 进行持久上下文
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 2: 创建自定义斜杠命令
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-3-mcp-gemini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 3: 使用自己的 MCP 服务器扩展 Gemini
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 4: 利用记忆添加与召回
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-5-restore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 5: 使用检查点和 /restore 作为撤销按钮
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-6-google-docssheets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 6: 阅读 Google Docs、Sheets 等
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 7: 使用 @ 引用文件和图像以获取明确上下文
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 8: 即时工具创建
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-9-gemini-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 9: 使用 Gemini CLI 进行系统故障排除和配置
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-10-yolo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 10: YOLO 模式 (谨慎使用)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 11: 无头和脚本模式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 12: 保存和恢复聊天会话
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 13: 多目录工作区
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-14-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 14: AI 协助文件整理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 15: 压缩长对话
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-16-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 16: 使用 ! 传递 Shell 命令
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-17-cli-gemini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 17: 将每个 CLI 工具视为 Gemini 工具
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-18-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 18: 利用多模态 AI 查看图像
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-19-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 19: 自定义 $PATH 提高稳定性
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-20-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 20: 跟踪和减少 Token 消耗
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-21-copy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 21: 使用 /copy 快速复制
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-22-ctrlc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 22: 掌握 Ctrl+C
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-23-settingsjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 23: 使用 settings.json 自定义
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-24-ide-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 24: IDE 集成 (VS Code)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-25-github-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 25: GitHub Action 自动化
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 26: 启用遥测
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 27: 关注路线图
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 28: 使用扩展
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-29-corgi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 29: Corgi 模式彩蛋 🐕
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -669,7 +1038,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ai/%E5%86%99%E5%A5%BDclaude.md%E6%96%87%E4%BB%B6/" class="md-nav__link">
+      <a href="../%E5%86%99%E5%A5%BDclaude.md%E6%96%87%E4%BB%B6/" class="md-nav__link">
         
   
   
@@ -987,31 +1356,26 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -1029,7 +1393,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1047,7 +1411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../migration/" class="md-nav__link">
+      <a href="../../django/migration/" class="md-nav__link">
         
   
   
@@ -1072,35 +1436,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Orm Usages
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../django/orm_usages/" class="md-nav__link">
         
   
   
@@ -1116,52 +1455,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#mysql" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        mysql 数据库相关
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="mysql 数据库相关">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#mysql-json" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        提取 MySQL 中使用文本类型保存的 json 内容，并转为特定类型
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2163,6 +2456,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -2171,30 +2466,321 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#mysql" class="md-nav__link">
+  <a href="#tip-1-geminimd" class="md-nav__link">
     <span class="md-ellipsis">
       
-        mysql 数据库相关
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="mysql 数据库相关">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#mysql-json" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        提取 MySQL 中使用文本类型保存的 json 内容，并转为特定类型
+        Tip 1: 使用 GEMINI.md 进行持久上下文
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#tip-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 2: 创建自定义斜杠命令
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-3-mcp-gemini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 3: 使用自己的 MCP 服务器扩展 Gemini
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 4: 利用记忆添加与召回
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-5-restore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 5: 使用检查点和 /restore 作为撤销按钮
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-6-google-docssheets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 6: 阅读 Google Docs、Sheets 等
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 7: 使用 @ 引用文件和图像以获取明确上下文
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 8: 即时工具创建
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-9-gemini-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 9: 使用 Gemini CLI 进行系统故障排除和配置
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-10-yolo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 10: YOLO 模式 (谨慎使用)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 11: 无头和脚本模式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 12: 保存和恢复聊天会话
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 13: 多目录工作区
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-14-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 14: AI 协助文件整理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 15: 压缩长对话
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-16-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 16: 使用 ! 传递 Shell 命令
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-17-cli-gemini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 17: 将每个 CLI 工具视为 Gemini 工具
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-18-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 18: 利用多模态 AI 查看图像
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-19-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 19: 自定义 $PATH 提高稳定性
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-20-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 20: 跟踪和减少 Token 消耗
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-21-copy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 21: 使用 /copy 快速复制
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-22-ctrlc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 22: 掌握 Ctrl+C
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-23-settingsjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 23: 使用 settings.json 自定义
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-24-ide-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 24: IDE 集成 (VS Code)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-25-github-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 25: GitHub Action 自动化
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 26: 启用遥测
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 27: 关注路线图
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 28: 使用扩展
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tip-29-corgi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tip 29: Corgi 模式彩蛋 🐕
+      
+    </span>
+  </a>
   
 </li>
       
@@ -2218,49 +2804,262 @@
   
 
 
-  <h1>Orm Usages</h1>
-
-<h2 id="mysql">mysql 数据库相关<a class="headerlink" href="#mysql" title="Permanent link">&para;</a></h2>
-<h3 id="mysql-json">提取 MySQL 中使用文本类型保存的 json 内容，并转为特定类型<a class="headerlink" href="#mysql-json" title="Permanent link">&para;</a></h3>
-<p>from: <a href="https://blog.enriquesoria.com/display-json-value-django-admin-list/?utm_campaign=Django%2BNewsletter&amp;utm_medium=email&amp;utm_source=Django_Newsletter_312">How to display a JSON value in Django admin (when using MySQL) // Enrique Soria</a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">django.db.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">CharField</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">django.db.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Func</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">django.db.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Value</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">django.db.models.functions</span><span class="w"> </span><span class="kn">import</span> <span class="n">Cast</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">class</span><span class="w"> </span><span class="nc">JSONExtractAndCast</span><span class="p">(</span><span class="n">Cast</span><span class="p">):</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expression</span><span class="p">,</span> <span class="o">*</span><span class="n">paths</span><span class="p">,</span> <span class="n">output_field</span><span class="p">):</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="c1"># borrowed from django_mysql.models.functions.JSONExtract</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        <span class="n">exprs</span> <span class="o">=</span> <span class="p">[</span><span class="n">expression</span><span class="p">]</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">:</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;resolve_expression&quot;</span><span class="p">):</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>                <span class="n">path</span> <span class="o">=</span> <span class="n">Value</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>            <span class="n">exprs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>        <span class="n">extracted_value</span> <span class="o">=</span> <span class="n">Func</span><span class="p">(</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>            <span class="o">*</span><span class="n">exprs</span><span class="p">,</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>            <span class="n">function</span><span class="o">=</span><span class="s2">&quot;JSON_EXTRACT&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>            <span class="n">output_field</span><span class="o">=</span><span class="n">CharField</span><span class="p">(),</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>        <span class="p">)</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>        <span class="n">unquoted_value</span> <span class="o">=</span> <span class="n">Func</span><span class="p">(</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>            <span class="n">extracted_value</span><span class="p">,</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>            <span class="n">function</span><span class="o">=</span><span class="s2">&quot;JSON_UNQUOTE&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>            <span class="n">output_field</span><span class="o">=</span><span class="n">output_field</span><span class="p">,</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>        <span class="p">)</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">unquoted_value</span><span class="p">,</span> <span class="n">output_field</span><span class="o">=</span><span class="n">output_field</span><span class="p">)</span>
-</code></pre></div>
-<p>usage:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>        <span class="n">queryset</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_queryset</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        <span class="k">return</span> <span class="n">queryset</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>            <span class="n">_payload_timestamp</span><span class="o">=</span><span class="n">JSONExtractAndCast</span><span class="p">(</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>                <span class="s2">&quot;payload&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>                <span class="s2">&quot;$.timestamp&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>                <span class="n">output_field</span><span class="o">=</span><span class="n">DateTimeField</span><span class="p">(),</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>            <span class="p">)</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        <span class="p">)</span>
-</code></pre></div>
+<h1 id="gemini-cli">Gemini CLI 使用技巧<a class="headerlink" href="#gemini-cli" title="Permanent link">&para;</a></h1>
+<p>本文总结了 <a href="https://github.com/addyosmani/gemini-cli-tips">addyosmani/gemini-cli-tips</a> 中介绍的 Gemini CLI 高效使用技巧。</p>
+<hr />
+<h3 id="tip-1-geminimd">Tip 1: 使用 <code>GEMINI.md</code> 进行持久上下文<a class="headerlink" href="#tip-1-geminimd" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: 通过在项目中创建 <code>GEMINI.md</code> 文件，为 AI 提供项目特定的持久上下文（如编码风格、项目架构），避免在每次提示中重复说明。</li>
+<li><strong>命令</strong>:<ul>
+<li><code>/init</code>: 快速生成一个包含项目信息的 <code>GEMINI.md</code> 模板。</li>
+<li><code>/memory show</code>: 显示 AI 当前加载的完整上下文。</li>
+<li><code>/memory refresh</code>: 重新加载磁盘上的上下文（在手动编辑 <code>GEMINI.md</code> 后）。</li>
+</ul>
+</li>
+<li><strong>示例</strong>:<ul>
+<li><code>GEMINI.md</code> 文件内容:<br />
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gh"># Project Phoenix - AI Assistant</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">-</span><span class="w"> </span>All Python code must follow PEP 8 style.
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">-</span><span class="w"> </span>Use 4 spaces for indentation.
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">-</span><span class="w"> </span>The user is building a data pipeline; prefer functional programming paradigms.
+</code></pre></div></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="tip-2">Tip 2: 创建自定义斜杠命令<a class="headerlink" href="#tip-2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: 定义自己的斜杠命令来加速重复性任务，本质上是预定义的提示模板。</li>
+<li><strong>示例</strong>:<ul>
+<li>创建文件 <code>~/.gemini/commands/test/gen.toml</code>:<br />
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Invoked as: /test:gen &quot;Description of the test&quot;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Generates a unit test based on a requirement.&quot;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">prompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="s2">You are an expert test engineer. Based on the following requirement, please write a comprehensive unit test using the Jest framework.</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="s2">Requirement: {{args}}</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="s2">&quot;&quot;&quot;</span>
+</code></pre></div></li>
+<li>使用: <code>/test:gen "Ensure the login button redirects to the dashboard upon success"</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="tip-3-mcp-gemini">Tip 3: 使用自己的 MCP 服务器扩展 Gemini<a class="headerlink" href="#tip-3-mcp-gemini" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: 通过运行自定义模型上下文协议 (MCP) 服务器，将 Gemini CLI 与外部系统或自定义工具（如专有数据库、Figma 设计）集成。</li>
+<li><strong>命令</strong>:<ul>
+<li><code>gemini mcp add myserver --command "python3 my_mcp_server.py" --port 8080</code>: 注册一个 MCP 服务器。</li>
+<li><code>/mcp</code>: 列出所有已注册的 MCP 服务器及其工具。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="tip-4">Tip 4: 利用记忆添加与召回<a class="headerlink" href="#tip-4" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: 将重要事实添加到 AI 的长期记忆中，以便 AI 始终能访问这些信息。</li>
+<li><strong>命令</strong>:<ul>
+<li><code>/memory add "&lt;text&gt;"</code>: 将事实或笔记添加到记忆中。</li>
+</ul>
+</li>
+<li><strong>示例</strong>:<ul>
+<li><code>/memory add "Our staging RabbitMQ is on port 5673"</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="tip-5-restore">Tip 5: 使用检查点和 <code>/restore</code> 作为撤销按钮<a class="headerlink" href="#tip-5-restore" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: 启用检查点功能，在 Gemini CLI 修改文件前创建快照，方便回滚。</li>
+<li><strong>命令</strong>:<ul>
+<li><code>gemini --checkpointing</code>: 启动时启用。</li>
+<li><code>/restore list</code>: 查看最近的检查点列表。</li>
+<li><code>/restore &lt;id&gt;</code>: 回滚到特定的检查点。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="tip-6-google-docssheets">Tip 6: 阅读 Google Docs、Sheets 等<a class="headerlink" href="#tip-6-google-docssheets" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: 配置 Workspace MCP 服务器后，可以直接粘贴 Google Docs/Sheets 链接，让 Gemini CLI 获取并阅读其内容。</li>
+<li><strong>示例</strong>:<ul>
+<li><code>Summarize the requirements from this design doc: https://docs.google.com/document/d/&lt;id&gt;</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="tip-7">Tip 7: 使用 <code>@</code> 引用文件和图像以获取明确上下文<a class="headerlink" href="#tip-7" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: 使用 <code>@</code> 语法直接将文件、目录或图像附加到提示中，确保 AI 准确地看到这些内容作为上下文。</li>
+<li><strong>示例</strong>:<ul>
+<li><code>Explain this code to me: @./src/main.js</code></li>
+<li><code>Refactor the code in @./utils/ to use async/await.</code></li>
+<li><code>Describe what you see in this screenshot: @./design/mockup.png</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="tip-8">Tip 8: 即时工具创建<a class="headerlink" href="#tip-8" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: 让 Gemini CLI 在会话中根据需要创建小型脚本或实用工具。</li>
+<li><strong>示例</strong>:<ul>
+<li><code>Generate a Node.js script that reads all '.log' files in the current directory and reports the number of lines in each.</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="tip-9-gemini-cli">Tip 9: 使用 Gemini CLI 进行系统故障排除和配置<a class="headerlink" href="#tip-9-gemini-cli" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: 将 Gemini CLI 用作操作系统的智能助手，处理通用系统任务。</li>
+<li><strong>示例</strong>:<ul>
+<li><code>Fix my .bashrc file, it has an error.</code></li>
+<li><code>When I run npm install, I get an EACCES permission error - how do I fix this?</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="tip-10-yolo">Tip 10: YOLO 模式 (谨慎使用)<a class="headerlink" href="#tip-10-yolo" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: 启用 YOLO 模式，让 Gemini CLI 自动执行工具操作，无需用户确认。</li>
+<li><strong>命令</strong>:<ul>
+<li><code>gemini --yolo</code> 或 <code>gemini -y</code>: 启动时启用。</li>
+<li><code>Ctrl+Y</code>: 在交互式会话中切换。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="tip-11">Tip 11: 无头和脚本模式<a class="headerlink" href="#tip-11" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: 在脚本或自动化中使用 Gemini CLI，通过命令行参数或环境变量提供提示。</li>
+<li><strong>命令</strong>:<ul>
+<li><code>gemini -p "...prompt..."</code>: 单次调用。</li>
+<li><code>some_command | gemini -p "Given the above output, what went wrong?"</code>: 通过管道输入命令输出。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="tip-12">Tip 12: 保存和恢复聊天会话<a class="headerlink" href="#tip-12" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: 保存和恢复会话，实现长时间对话的无缝暂停和继续。</li>
+<li><strong>命令</strong>:<ul>
+<li><code>/chat save &lt;tag&gt;</code>: 保存当前会话状态。</li>
+<li><code>/chat resume &lt;tag&gt;</code>: 恢复指定标签的会话。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="tip-13">Tip 13: 多目录工作区<a class="headerlink" href="#tip-13" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: Gemini CLI 可以为不同项目目录加载独立的上下文 (<code>./.gemini/GEMINI.md</code>)，或使用全局上下文 (<code>~/.gemini/GEMINI.md</code>)。</li>
+<li><strong>示例</strong>: 在不同项目目录中运行 <code>gemini</code> 会自动切换上下文。</li>
+</ul>
+<hr />
+<h3 id="tip-14-ai">Tip 14: AI 协助文件整理<a class="headerlink" href="#tip-14-ai" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: 利用 AI 理解文件内容和目的的能力来帮助组织和清理文件。</li>
+<li><strong>示例</strong>:<ul>
+<li><code>"Organize these files into appropriate subdirectories: @./"</code></li>
+<li><code>"Delete all temporary build files in this directory."</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="tip-15">Tip 15: 压缩长对话<a class="headerlink" href="#tip-15" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: 通过提示 AI 总结或压缩过去的交互，来管理长对话中的 token 限制。</li>
+<li><strong>示例</strong>: <code>"Summarize our conversation so far."</code></li>
+</ul>
+<hr />
+<h3 id="tip-16-shell">Tip 16: 使用 <code>!</code> 传递 Shell 命令<a class="headerlink" href="#tip-16-shell" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: 使用 <code>!</code> 前缀直接在 Gemini CLI 会话中执行 shell 命令，无需退出。</li>
+<li><strong>示例</strong>:<ul>
+<li><code>!ls -l</code></li>
+<li><code>!git status</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="tip-17-cli-gemini">Tip 17: 将每个 CLI 工具视为 Gemini 工具<a class="headerlink" href="#tip-17-cli-gemini" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: Gemini CLI 可以调用任何现有的命令行工具，从而扩展其能力。</li>
+<li><strong>示例</strong>: <code>"Use 'grep' to find all occurrences of 'TODO' in the current project."</code></li>
+</ul>
+<hr />
+<h3 id="tip-18-ai">Tip 18: 利用多模态 AI 查看图像<a class="headerlink" href="#tip-18-ai" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: 使用 <code>@</code> 语法引用图像，让 Gemini 理解和处理图像内容。</li>
+<li><strong>示例</strong>: <code>"Describe what you see in this screenshot: @./design/mockup.png"</code></li>
+</ul>
+<hr />
+<h3 id="tip-19-path">Tip 19: 自定义 <code>$PATH</code> 提高稳定性<a class="headerlink" href="#tip-19-path" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: 通过在 <code>settings.json</code> 中配置 <code>$PATH</code>，可以控制 AI 能访问的 shell 命令，确保稳定性和安全性。</li>
+<li><strong>示例</strong>: 在 <code>settings.json</code> 中限制 <code>shell.path</code>。</li>
+</ul>
+<hr />
+<h3 id="tip-20-token">Tip 20: 跟踪和减少 Token 消耗<a class="headerlink" href="#tip-20-token" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: 通过内部的缓存和统计机制来监控和优化 token 使用。</li>
+<li><strong>命令</strong>: (具体命令未在文章中明确，但暗示有相关功能)<ul>
+<li>可能通过 <code>/token stats</code> 或类似命令查看。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="tip-21-copy">Tip 21: 使用 <code>/copy</code> 快速复制<a class="headerlink" href="#tip-21-copy" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: 使用 <code>/copy</code> 命令将 Gemini 的输出快速复制到系统剪贴板。</li>
+<li><strong>命令</strong>:<ul>
+<li><code>/copy</code>: 复制上一个 AI 响应。</li>
+<li><code>/copy @./file.txt</code>: 复制文件内容。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="tip-22-ctrlc">Tip 22: 掌握 <code>Ctrl+C</code><a class="headerlink" href="#tip-22-ctrlc" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: <code>Ctrl+C</code> 有特殊功能：单按可切换到 shell 模式，双按可退出 CLI。</li>
+</ul>
+<hr />
+<h3 id="tip-23-settingsjson">Tip 23: 使用 <code>settings.json</code> 自定义<a class="headerlink" href="#tip-23-settingsjson" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: 通过编辑 <code>~/.gemini/settings.json</code> (全局) 或 <code>./.gemini/settings.json</code> (项目) 文件来配置 Gemini 的行为。</li>
+<li><strong>示例</strong>: <code>{"checkpointing": { "enabled": true }}</code></li>
+</ul>
+<hr />
+<h3 id="tip-24-ide-vs-code">Tip 24: IDE 集成 (VS Code)<a class="headerlink" href="#tip-24-ide-vs-code" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: 通过 VS Code 扩展与 Gemini CLI 集成，可以在 IDE 内提供上下文并直观地显示文件差异。</li>
+</ul>
+<hr />
+<h3 id="tip-25-github-action">Tip 25: GitHub Action 自动化<a class="headerlink" href="#tip-25-github-action" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: 将 Gemini CLI 集成到 GitHub Actions 工作流中，以自动化代码审查、文档生成等任务。</li>
+</ul>
+<hr />
+<h3 id="tip-26">Tip 26: 启用遥测<a class="headerlink" href="#tip-26" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: 启用遥测可以向 Google 发送匿名使用数据，帮助改进 Gemini CLI，并提供使用模式的洞察。</li>
+<li><strong>示例</strong>: 通过 <code>settings.json</code> 或启动标志 <code>--telemetry-enable</code> (假设) 启用。</li>
+</ul>
+<hr />
+<h3 id="tip-27">Tip 27: 关注路线图<a class="headerlink" href="#tip-27" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: 关注项目的官方路线图，了解如后台代理等即将推出的新功能。</li>
+</ul>
+<hr />
+<h3 id="tip-28">Tip 28: 使用扩展<a class="headerlink" href="#tip-28" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: Gemini CLI 支持通过扩展（如 MCP 服务器）来增加新功能和集成。</li>
+</ul>
+<hr />
+<h3 id="tip-29-corgi">Tip 29: Corgi 模式彩蛋 🐕<a class="headerlink" href="#tip-29-corgi" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>关键思路</strong>: 一个有趣的隐藏彩蛋功能。</li>
+<li><strong>示例</strong>: 尝试输入 <code>/corgi</code> 或 <code>corgi mode</code>。</li>
+</ul>
+<hr />
+<p><strong>文章来源</strong>: <a href="https://github.com/addyosmani/gemini-cli-tips">https://github.com/addyosmani/gemini-cli-tips</a></p>
 
 
 
