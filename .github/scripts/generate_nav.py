@@ -11,10 +11,10 @@ EXCLUDED_PATHS = [
     "site",
     "_site",
     "docs",
-    MKDOCS_YML_PATH,
     "README.md",
     ".gitignore",
     "CNAME"
+    MKDOCS_YML_PATH,
 ]
 
 def find_first_md_path(nav_structure):
@@ -48,11 +48,17 @@ def redirect_path_to_url(md_path):
         return md_path[:-3] + '/'
     return md_path
 
+
+def as_title(path):
+    """Convert a file or directory path to a human-readable title."""
+    return os.path.basename(path)
+
+
 def create_nav_entry(path):
     """Create a navigation entry for a given path."""
     if os.path.isdir(path):
         # It's a directory, create a nested structure
-        title = os.path.basename(path).replace('-', ' ').replace('_', ' ').title()
+        title = as_title(path)
         
         # Get children, and separate them into dirs and files to ensure dirs come first
         child_items = sorted(os.listdir(path))
@@ -82,7 +88,7 @@ def create_nav_entry(path):
         return {title: nav_children}
     elif path.endswith('.md'):
         # It's a markdown file, create a title from the filename
-        title = os.path.basename(path)[:-3].replace('-', ' ').replace('_', ' ').title()
+        title = as_title(path)
         return {title: path}
     return None
 
