@@ -136,7 +136,7 @@ def main():
         # Change back to the docs directory to write index.md
         os.chdir(docs_dir)
         with open('index.md', 'w', encoding='utf-8') as f:
-            f.write(f'<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv="refresh" content="0; url=/{redirect_url}">\n</head>\n<body>\n<p>Redirecting to <a href="/{redirect_url}">{redirect_url}</a></p>\n</body>\n</html>')
+            f.write(f'<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv="refresh" content="0; url=./{redirect_url}">\n</head>\n<body>\n<p>Redirecting to <a href="./{redirect_url}">{redirect_url}</a></p>\n</body>\n</html>')
         os.chdir('..') # Change back to the project root
 
     with open(MKDOCS_YML_PATH, 'w', encoding='utf-8') as f:
