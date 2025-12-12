@@ -2,6 +2,8 @@
 import yaml
 import os
 
+MKDOCS_YML_PATH = 'mkdocs.yml'
+
 # Files or directories to exclude from the navigation
 EXCLUDED_PATHS = [
     ".git",
@@ -9,7 +11,7 @@ EXCLUDED_PATHS = [
     "site",
     "_site",
     "docs",
-    "mkdocs.yml",
+    MKDOCS_YML_PATH,
     "README.md",
     ".gitignore",
     "CNAME"
@@ -44,7 +46,7 @@ def create_nav_entry(path):
 
 def main():
     """Main function to generate and update the navigation."""
-    with open('mkdocs.yml', 'r', encoding='utf-8') as f:
+    with open(MKDOCS_YML_PATH, 'r', encoding='utf-8') as f:
         config = yaml.safe_load(f)
 
     root_items = sorted(os.listdir('./docs'))
@@ -65,10 +67,13 @@ def main():
     # Add the generated nav to the config under a single top-level key
     config['nav'] = [{'Notes': nav_structure}]
 
-    with open('mkdocs.yml', 'w', encoding='utf-8') as f:
+    with open(MKDOCS_YML_PATH, 'w', encoding='utf-8') as f:
         yaml.dump(config, f, allow_unicode=True, sort_keys=False)
 
     print("Successfully generated and updated the navigation in mkdocs.yml")
+
+    with open(MKDOCS_YML_PATH, 'r', encoding='utf-8') as f:
+        print(f.read())  # Print the updated mkdocs.yml content
 
 if __name__ == "__main__":
     main()
