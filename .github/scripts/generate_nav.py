@@ -49,7 +49,15 @@ def main():
     with open(MKDOCS_YML_PATH, 'r', encoding='utf-8') as f:
         config = yaml.safe_load(f)
 
-    root_items = sorted(os.listdir('./docs'))
+    docs_dir = 'docs'
+    if not os.path.isdir(docs_dir):
+        print(f"Error: '{docs_dir}' directory not found. The workflow should have created it.")
+        return
+
+    # Change into docs directory to make path handling easier
+    os.chdir(docs_dir)
+
+    root_items = sorted(os.listdir('.'))
     nav_structure = []
 
     # First, add top-level markdown files
@@ -63,6 +71,9 @@ def main():
             entry = create_nav_entry(item)
             if entry:
                 nav_structure.append(entry)
+
+    # Change back to the project root to access mkdocs.yml
+    os.chdir('..')
 
     # Add the generated nav to the config under a single top-level key
     config['nav'] = [{'Notes': nav_structure}]
