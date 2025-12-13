@@ -1,0 +1,25 @@
+### 用法
+
+```shell
+ps -eo pid,lstart,etime,cmd | grep <进程关键字>
+```
+
+命令解释：
+
+```
+       lstart      STARTED   time the command started.  See also bsdstart, start, start_time, and stime.
+       etime       ELAPSED   elapsed time since the process was started, in the form [[DD-]hh:]mm:ss.
+```
+
+### 示例
+
+```bash
+[root@iZ25p102vo3Z ~]# ps -eo pid,lstart,etime,cmd | grep nginx
+16968 Fri Mar  4 16:04:27 2016 41-21:14:04 nginx: master process /usr/sbin/nginx
+17826 Fri Mar  4 22:53:51 2016 41-14:24:40 nginx: worker process
+18312 Fri Apr 15 13:18:31 2016       00:00 grep --color=auto nginx
+```
+
+### 参考
+
+1. [Linux ps 命令查看进程启动及运行时间 - Jamin Zhang](https://jaminzhang.github.io/linux/using-ps-to-view-process-started-and-elapsed-time-in-linux/)

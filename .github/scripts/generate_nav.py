@@ -56,7 +56,7 @@ def as_title(path):
     title = os.path.basename(path)
     if title.endswith(".md"):
         title = title[:-3]  # Remove the .md extension
-    return title
+    return title.replace("_", " ")
 
 
 def create_nav_entry(path):

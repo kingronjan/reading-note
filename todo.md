@@ -1,3 +1,32 @@
-worth to try
+### worth to try
 
 - [furkan/dockerlings: learn docker in your terminal, with bite sized exercises](https://github.com/furkan/dockerlings)
+
+
+### 阅读
+
+- [ ] [程序员阅读清单：我喜欢的 100 篇技术文章（21-40） | Piglei](https://www.piglei.com/articles/programmer-reading-list-2/)
+- [ ] [程序员阅读清单：我喜欢的 100 篇技术文章（41-50） | Piglei](https://www.piglei.com/articles/programmer-reading-list-3/)
+
+
+### 编程
+
+- [ ] drfparamter
+- [ ] skywalker
+  - [ ] [danimelchor/clypi: Your all-in-one for beautiful, prod-ready CLIs](https://github.com/danimelchor/clypi)
+  
+
+### 学习
+
+- [ ] 李永乐考研数学复习全书基础篇 （1%）
+- [ ] 408 学习资料 [CodePanda66/CSPostgraduate-408: 💯 CSPostgraduate 计算机考研 408 专业课资料及真题资源](https://github.com/CodePanda66/CSPostgraduate-408)
+
+
+### 游戏
+
+- [ ] 波斯王子：Rogue 
+
+
+### 电影
+
+- [ ] 疯狂动物城2
