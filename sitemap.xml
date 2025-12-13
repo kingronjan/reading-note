@@ -17,18 +17,6 @@
          <lastmod>2025-12-13</lastmod>
     </url>
     <url>
-         <loc>https://kingronjan.github.io/reading-note/cloud-native/docker/%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E9%95%9C%E5%83%8F/</loc>
-         <lastmod>2025-12-13</lastmod>
-    </url>
-    <url>
-         <loc>https://kingronjan.github.io/reading-note/cloud-native/docker/%E9%95%9C%E5%83%8F%E6%BA%90/</loc>
-         <lastmod>2025-12-13</lastmod>
-    </url>
-    <url>
-         <loc>https://kingronjan.github.io/reading-note/cloud-native/kubernetes/%E9%94%99%E8%AF%AF%E6%8E%92%E6%9F%A5%E6%96%B9%E5%BC%8F/</loc>
-         <lastmod>2025-12-13</lastmod>
-    </url>
-    <url>
          <loc>https://kingronjan.github.io/reading-note/data/datax/DataX-HiveReader/</loc>
          <lastmod>2025-12-13</lastmod>
     </url>
@@ -226,6 +214,18 @@
     </url>
     <url>
          <loc>https://kingronjan.github.io/reading-note/digest/%E9%81%BF%E5%85%8D%E6%97%A0%E7%B2%BE%E6%89%93%E9%87%87%E7%9A%84%E8%B4%9F%E7%BD%AA%E6%84%9F/</loc>
+         <lastmod>2025-12-13</lastmod>
+    </url>
+    <url>
+         <loc>https://kingronjan.github.io/reading-note/docker/%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E9%95%9C%E5%83%8F/</loc>
+         <lastmod>2025-12-13</lastmod>
+    </url>
+    <url>
+         <loc>https://kingronjan.github.io/reading-note/docker/%E9%95%9C%E5%83%8F%E6%BA%90/</loc>
+         <lastmod>2025-12-13</lastmod>
+    </url>
+    <url>
+         <loc>https://kingronjan.github.io/reading-note/docker/kubernetes/%E9%94%99%E8%AF%AF%E6%8E%92%E6%9F%A5%E6%96%B9%E5%BC%8F/</loc>
          <lastmod>2025-12-13</lastmod>
     </url>
     <url>
