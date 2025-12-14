@@ -38,7 +38,6 @@ theme:
     - navigation.top
     - navigation.instant.progress
     - navigation.prune
-    - navigation.footer
     - search.suggest
     - search.highlight
     - content.code.copy
