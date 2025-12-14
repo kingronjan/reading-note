@@ -5,7 +5,7 @@
   
 设置 apt 源：
 
-```shelldebain setup
+```shell
 bash <(curl -sSL https://linuxmirrors.cn/main.sh)
 ```
 
