@@ -1,6 +1,12 @@
 ### worth to try
 
-- [furkan/dockerlings: learn docker in your terminal, with bite sized exercises](https://github.com/furkan/dockerlings)
+- [ ] [furkan/dockerlings: learn docker in your terminal, with bite sized exercises](https://github.com/furkan/dockerlings)
+- [ ] [Git Internals - Learn by Building Your Own Git](https://www.leshenko.net/p/ugit/#)
+
+
+### 面试资料
+
+- [Python/SQL/Django 面試題 - HackMD](https://hackmd.io/@_FqBW8dGS8a5ZqhdMwvpuA/ByYoWaxfD#Python%E7%89%B9%E6%80%A7%EF%BC%9A)
 
 
 ### 阅读
