@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://kingronjan.github.io/reading-note/data/mysql/binlog/">
+        <link rel="canonical" href="https://kingronjan.github.io/reading-note/data/debezium/wal2json%E5%87%BA%E7%8E%B0oom%E9%97%AE%E9%A2%98/">
       
       
-        <link rel="prev" href="../../kafka/%E6%B6%88%E8%B4%B9%E6%9C%80%E6%96%B0%E7%9A%84N%E6%9D%A1%E6%95%B0%E6%8D%AE/">
+        <link rel="prev" href="../smt/">
       
       
-        <link rel="next" href="../install/">
+        <link rel="next" href="../%E5%AF%86%E6%96%87%E5%AF%86%E7%A0%81/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>binlog - reading-note</title>
+        <title>wal2json出现oom问题 - reading-note</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#binlog" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              binlog
+              wal2json出现oom问题
             
           </span>
         </div>
@@ -857,6 +857,8 @@
                 
   
   
+    
+  
   
   
     
@@ -874,11 +876,11 @@
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
         
           
           <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
@@ -899,7 +901,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -917,7 +919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../debezium/debezium-server/" class="md-nav__link">
+      <a href="../debezium-server/" class="md-nav__link">
         
   
   
@@ -945,7 +947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../debezium/max_request_size/" class="md-nav__link">
+      <a href="../max_request_size/" class="md-nav__link">
         
   
   
@@ -973,7 +975,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../debezium/mysql/" class="md-nav__link">
+      <a href="../mysql/" class="md-nav__link">
         
   
   
@@ -1001,7 +1003,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../debezium/smt/" class="md-nav__link">
+      <a href="../smt/" class="md-nav__link">
         
   
   
@@ -1026,10 +1028,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../debezium/wal2json%E5%87%BA%E7%8E%B0oom%E9%97%AE%E9%A2%98/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    wal2json出现oom问题
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1045,6 +1072,57 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        搭建测试环境
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        测试数据
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1057,7 +1135,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../debezium/%E5%AF%86%E6%96%87%E5%AF%86%E7%A0%81/" class="md-nav__link">
+      <a href="../%E5%AF%86%E6%96%87%E5%AF%86%E7%A0%81/" class="md-nav__link">
         
   
   
@@ -1304,8 +1382,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1323,11 +1399,11 @@
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
         
           
           <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="">
@@ -1348,7 +1424,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1363,35 +1439,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    binlog
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../mysql/binlog/" class="md-nav__link">
         
   
   
@@ -1407,163 +1458,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#binlog" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        清理 binlog
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="清理 binlog">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        参考
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        说明
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        实现
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="实现">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#mysql-binlog" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        关闭 mysql 主从，关闭 binlog
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mysql-expire_logs_days" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        开启 mysql 主从，设置 expire_logs_days
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#binlog_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        手动清除 binlog 文件
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        附录：
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="附录：">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#expire_logs_days" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        expire_logs_days 英文说明
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#purge-master-logs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PURGE MASTER LOGS 手动删除用法及示例
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#binlog-mysql" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        清除 binlog 时，对从 mysql 的影响
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1576,7 +1470,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install/" class="md-nav__link">
+      <a href="../../mysql/install/" class="md-nav__link">
         
   
   
@@ -1604,7 +1498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../strict_mode%E5%AF%B9insert%E7%9A%84%E5%BD%B1%E5%93%8D/" class="md-nav__link">
+      <a href="../../mysql/strict_mode%E5%AF%B9insert%E7%9A%84%E5%BD%B1%E5%93%8D/" class="md-nav__link">
         
   
   
@@ -1632,7 +1526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E9%9D%A2%E8%AF%95/" class="md-nav__link">
+      <a href="../../mysql/%E9%9D%A2%E8%AF%95/" class="md-nav__link">
         
   
   
@@ -2431,141 +2325,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#binlog" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        清理 binlog
+        搭建测试环境
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="清理 binlog">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        测试数据
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         参考
       
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        说明
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        实现
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="实现">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#mysql-binlog" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        关闭 mysql 主从，关闭 binlog
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mysql-expire_logs_days" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        开启 mysql 主从，设置 expire_logs_days
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#binlog_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        手动清除 binlog 文件
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        附录：
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="附录：">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#expire_logs_days" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        expire_logs_days 英文说明
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#purge-master-logs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PURGE MASTER LOGS 手动删除用法及示例
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#binlog-mysql" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        清除 binlog 时，对从 mysql 的影响
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2621,10 +2409,10 @@
     
     
       <li class="md-path__item">
-        <a href="./" class="md-path__link">
+        <a href="../debezium-server/" class="md-path__link">
           
   <span class="md-ellipsis">
-    mysql
+    debezium
   </span>
 
         </a>
@@ -2646,88 +2434,125 @@
   
 
 
-  <h1>binlog</h1>
+  <h1>wal2json出现oom问题</h1>
 
-<h2 id="binlog">清理 binlog<a class="headerlink" href="#binlog" title="Permanent link">&para;</a></h2>
-<h3 id="_1">参考<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h2 id="_1">搭建测试环境<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>PG9.6:</p>
+<p>dockerfile:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c"># FROM hub.rat.dev/postgres:9.6</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">FROM</span><span class="w"> </span><span class="s">docker.xuanyuan.me/frodenas/postgresql:latest</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c"># acording https://wiki.postgresql.org/wiki/Apt</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c"># 旧版 Debian/Ubuntu 发行版的软件包已移至 https://apt-archive.postgresql.org</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">RUN</span><span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/apt.p/apt-archive.p/g&#39;</span><span class="w"> </span>/etc/apt/sources.list.d/pgdg.list
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c"># install wal2json</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c"># from https://askubuntu.com/questions/1065231/dpkg-deb-error-archive-has-premature-member-control-tar-xz-before-contr</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c"># if error like this:</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c"># dpkg-deb: error: archive ... has premature member &#39;control.tar.xz&#39; before &#39;control.tar.gz&#39;, giving up</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c"># add </span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="c"># RUN apt-get clean &amp;&amp; \</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c">#    apt-get update &amp;&amp; \</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="c">#    apt-get install dpkg</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-f<span class="w"> </span>-y<span class="w"> </span>--no-install-recommends<span class="w"> </span>postgresql-9.6-wal2json
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="c"># default</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">PG_OPTIONS</span><span class="o">=</span><span class="s1">&#39;-c wal_level=logical -c max_wal_senders=10 -c max_replication_slots=10&#39;</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="c"># supoort PG_OPTIONS</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="k">RUN</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;$s/$/ \$PG_OPTIONS/&#39;</span><span class="w"> </span>/scripts/run.sh
+</code></pre></div>
+<p>build:<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>pg96-wal2json:1.0.0<span class="w"> </span>.
+</code></pre></div></p>
+<p>验证 wal2json 是否安装：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">pg_create_logical_replication_slot</span><span class="p">(</span><span class="s1">&#39;my_wal2json_slot&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;wal2json&#39;</span><span class="p">);</span>
+</code></pre></div>
+<p>docker compose 配置：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># docker-compose.yml</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">services</span><span class="p">:</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">postgres</span><span class="p">:</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pg96-wal2json:1.0.0</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5432:5432&quot;</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/home/kingron/data/postgres:/data</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POSTGRES_PASSWORD=postgres</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POSTGRES_USER=postgres</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POSTGRES_DB=postgres</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PGDATA=/data</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">  </span><span class="nt">kafka</span><span class="p">:</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hub.rat.dev/apache/kafka:latest</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kafka</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;9092:9092&quot;</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">      </span><span class="nt">KAFKA_PROCESS_ROLES</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;broker,controller&#39;</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">      </span><span class="nt">KAFKA_NODE_ID</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">      </span><span class="nt">KAFKA_LISTENERS</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;PLAINTEXT://:9092,CONTROLLER://:9093&#39;</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">      </span><span class="nt">KAFKA_ADVERTISED_LISTENERS</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;PLAINTEXT://kafka:9092&#39;</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">      </span><span class="nt">KAFKA_CONTROLLER_LISTENER_NAMES</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;CONTROLLER&#39;</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">      </span><span class="nt">KAFKA_INTER_BROKER_LISTENER_NAME</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;PLAINTEXT&#39;</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">      </span><span class="nt">KAFKA_CONTROLLER_QUORUM_VOTERS</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;1@kafka:9093&#39;</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="w">      </span><span class="nt">KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;1&#39;</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="w">      </span><span class="nt">CLUSTER_ID</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;5L6g3nShT-eMCtK--X86sw&#39;</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="w">      </span><span class="nt">KAFKA_LOG_DIRS</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/tmp/kafka-logs&#39;</span>
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="w">  </span><span class="nt">debezium</span><span class="p">:</span>
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hub.rat.dev/debezium/connect:1.9.7.Final</span>
+<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">debezium</span>
+<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8083:8083&quot;</span>
+<a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+<a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kafka</span>
+<a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+<a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a><span class="w">      </span><span class="nt">BOOTSTRAP_SERVERS</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kafka:9092</span>
+<a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a><span class="w">      </span><span class="nt">GROUP_ID</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a><span class="w">      </span><span class="nt">CONFIG_STORAGE_TOPIC</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_connect_configs</span>
+<a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a><span class="w">      </span><span class="nt">OFFSET_STORAGE_TOPIC</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_connect_offsets</span>
+<a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a><span class="w">      </span><span class="nt">STATUS_STORAGE_TOPIC</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_connect_statuses</span>
+</code></pre></div>
+<h2 id="_2">测试数据<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">large_object_table</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">SERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="k">data</span><span class="w"> </span><span class="nb">TEXT</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">);</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1">-- debezium 建立后写入数据</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">large_object_table</span><span class="w"> </span><span class="p">(</span><span class="k">data</span><span class="p">)</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">repeat</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="p">);</span>
+</code></pre></div>
+<p>debezium 配置：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pg-wal2json-connector&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">        </span><span class="nt">&quot;connector.class&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;io.debezium.connector.postgresql.PostgresConnector&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="nt">&quot;database.hostname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;postgres&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="nt">&quot;database.port&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5432&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="nt">&quot;database.user&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;postgres&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="nt">&quot;database.password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;postgres&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="nt">&quot;database.dbname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;postgres&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="nt">&quot;database.server.name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pgserver1000&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">        </span><span class="nt">&quot;table.include.list&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;public.large_object_table&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">        </span><span class="nt">&quot;plugin.name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;wal2json&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">        </span><span class="nt">&quot;transforms&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;route&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">        </span><span class="nt">&quot;transforms.route.type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;io.debezium.transforms.ByLogicalTableRouter&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">        </span><span class="nt">&quot;transforms.route.topic.regex&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pgserver1000\.public\.(.*)&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">        </span><span class="nt">&quot;transforms.route.topic.replacement&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;all_postgres_changes&quot;</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="_3">参考<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://www.cnblogs.com/xxoome/p/9802684.html">mysql binlog 日志自动清理及手动删除 - 景岳 - 博客园</a></li>
+<li><a href="https://debezium.io/blog/2020/02/25/lessons-learned-running-debezium-with-postgresql-on-rds/">在 Amazon RDS 上使用 PostgreSQL 运行 Debezium 的经验教训</a></li>
 </ul>
-<h3 id="_2">说明<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>当开启 <code>mysql</code> 数据库主从时，会产生大量如 <code>mysql-bin.00000* log</code> 的文件，这会大量耗费您的硬盘空间。<br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mysql-bin.000001
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>mysql-bin.000002
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>mysql-bin.000003
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>mysql-bin.000004
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>mysql-bin.000005
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>…
-</code></pre></div></p>
-<p>有三种解决方法：<br />
-1. 关闭 <code>mysql</code> 主从，关闭 <code>binlog</code><br />
-2. 开启 <code>mysql</code> 主从，设置 <code>expire_logs_days</code><br />
-3. 手动清除 <code>binlog</code> 文件<br />
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">PURGE</span><span class="w"> </span><span class="n">MASTER</span><span class="w"> </span><span class="n">LOGS</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;MySQL-bin.010&#39;</span>
-</code></pre></div></p>
-<h3 id="_3">实现<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<h4 id="mysql-binlog">关闭 <code>mysql</code> 主从，关闭 <code>binlog</code><a class="headerlink" href="#mysql-binlog" title="Permanent link">&para;</a></h4>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>vim<span class="w"> </span>/etc/my.cnf<span class="w">  </span><span class="c1"># 注释掉 log-bin, binlog_format</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># REPLICATION MASTER SERVER (DEFAULT)</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># BINARY LOGGING IS REQUIRED FOR REPLICATION</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># LOG-BIN=MYSQL-BIN</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># BINARY LOGGING FORMAT - MIXED RECOMMENDED</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># BINLOG_FORMAT=MIXED</span>
-</code></pre></div><br />
-然后重启数据库。</p>
-<h4 id="mysql-expire_logs_days">开启 <code>mysql</code> 主从，设置 <code>expire_logs_days</code><a class="headerlink" href="#mysql-expire_logs_days" title="Permanent link">&para;</a></h4>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>vim<span class="w"> </span>/etc/my.cnf<span class="w">  </span><span class="c1"># 修改 expire_logs_days, x 是自动删除的天数，一般将 x 设置为短点，如 10</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># EXPIRE_LOGS_DAYS = X  //二进制日志自动删除的天数。默认值为 0, 表示“没有自动删除”</span>
-</code></pre></div><br />
-此方法需要重启 <code>mysql</code>，附录有关于 <code>expire_logs_days</code> 的英文说明<br />
-当然也可以不重启 <code>mysql</code>，开启 <code>mysql</code> 主从，直接在 <code>mysql</code> 里设置 <code>expire_logs_days</code><br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="nb">binary</span><span class="w"> </span><span class="n">logs</span><span class="p">;</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="o">&gt;</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;%log%&#39;</span><span class="p">;</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="o">&gt;</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="k">global</span><span class="w"> </span><span class="n">expire_logs_days</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
-</code></pre></div></p>
-<h4 id="binlog_1">手动清除 <code>binlog</code> 文件<a class="headerlink" href="#binlog_1" title="Permanent link">&para;</a></h4>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">-- 删除 10 天前的 MySQL binlog 日志</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1">-- 更多用法参考</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">PURGE</span><span class="w"> </span><span class="n">MASTER</span><span class="w"> </span><span class="n">LOGS</span><span class="w"> </span><span class="k">BEFORE</span><span class="w"> </span><span class="n">DATE_SUB</span><span class="p">(</span><span class="k">CURRENT_DATE</span><span class="p">,</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="k">DAY</span><span class="p">);</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">show</span><span class="w"> </span><span class="n">master</span><span class="w"> </span><span class="n">logs</span><span class="p">;</span>
-</code></pre></div><br />
-也可以重置 <code>master</code>，删除所有 <code>binlog</code> 文件：<br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">reset</span><span class="w"> </span><span class="n">master</span><span class="p">;</span><span class="w">  </span>
-</code></pre></div></p>
-<h3 id="_4">附录：<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<h4 id="expire_logs_days">expire_logs_days 英文说明<a class="headerlink" href="#expire_logs_days" title="Permanent link">&para;</a></h4>
-<blockquote>
-<p>Where X is the number of days you’d like to keep them around. I would recommend 10, but this depends on how busy your MySQL server is and how fast these log files grow. <br />
-Just make sure it is longer than the slowest slave takes to replicate the data from your master.</p>
-<p>Just a side note: You know that you should do this anyway, but make sure you back up your mysql database. <br />
-The binary log can be used to recover the database in certain situations; so having a backup ensures that if your database server does crash, you will be able to recover the data.</p>
-</blockquote>
-<h4 id="purge-master-logs">PURGE MASTER LOGS 手动删除用法及示例<a class="headerlink" href="#purge-master-logs" title="Permanent link">&para;</a></h4>
-<p><code>MASTER</code> 和 <code>BINARY</code> 是同义词<br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="o">&gt;</span><span class="w"> </span><span class="n">PURGE</span><span class="w"> </span><span class="err">{</span><span class="n">MASTER</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nb">BINARY</span><span class="err">}</span><span class="w"> </span><span class="n">LOGS</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;log_name&#39;</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="o">&gt;</span><span class="w"> </span><span class="n">PURGE</span><span class="w"> </span><span class="err">{</span><span class="n">MASTER</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nb">BINARY</span><span class="err">}</span><span class="w"> </span><span class="n">LOGS</span><span class="w"> </span><span class="k">BEFORE</span><span class="w"> </span><span class="s1">&#39;date&#39;</span>
-</code></pre></div><br />
-删除指定的日志或日期之前的日志索引中的所有二进制日志。这些日志也会从记录在日志索引文件中的清单中被删除 <code>MySQL BIN-LOG</code> 日志，这样被给定的日志成为第一个。<br />
-实例：<br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">-- 清除 MySQL-bin.010 日志</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">PURGE</span><span class="w"> </span><span class="n">MASTER</span><span class="w"> </span><span class="n">LOGS</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;MySQL-bin.010&#39;</span><span class="p">;</span><span class="w">  </span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1">-- 清除 2008-06-22 13:00:00 前 binlog 日志</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">PURGE</span><span class="w"> </span><span class="n">MASTER</span><span class="w"> </span><span class="n">LOGS</span><span class="w"> </span><span class="k">BEFORE</span><span class="w"> </span><span class="s1">&#39;2008-06-22 13:00:00&#39;</span><span class="p">;</span><span class="w">   </span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1">-- 清除 3 天前 binlog 日志 BEFORE，变量的 date 自变量可以为&#39;YYYY-MM-DD hh:mm:ss&#39;格式</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="n">PURGE</span><span class="w"> </span><span class="n">MASTER</span><span class="w"> </span><span class="n">LOGS</span><span class="w"> </span><span class="k">BEFORE</span><span class="w"> </span><span class="n">DATE_SUB</span><span class="p">(</span><span class="w"> </span><span class="n">NOW</span><span class="p">(</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">DAY</span><span class="p">);</span><span class="w">  </span>
-</code></pre></div></p>
-<h4 id="binlog-mysql">清除 <code>binlog</code> 时，对从 <code>mysql</code> 的影响<a class="headerlink" href="#binlog-mysql" title="Permanent link">&para;</a></h4>
-<blockquote>
-<p>如果您有一个活性的从属服务器，该服务器当前正在读取您正在试图删除的日志之一，则本语句不会起作用，而是会失败，并伴随一个错误。<br />
-不过，如果从属服务器是休止的，并且您碰巧清理了其想要读取的日志之一，则从属服务器启动后不能复制。当从属服务器正在复制时，本语句可以安全运行。您不需要停止它们。</p>
-</blockquote>
 
 
 
