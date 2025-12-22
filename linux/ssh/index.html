@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://kingronjan.github.io/reading-note/linux/%E4%BD%BF%E7%94%A8shell%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC/">
+        <link rel="canonical" href="https://kingronjan.github.io/reading-note/linux/ssh/">
       
       
-        <link rel="prev" href="../%E4%BD%BF%E7%94%A8ps%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%90%AF%E5%8A%A8%E6%97%B6%E9%97%B4%E5%92%8C%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/">
+        <link rel="prev" href="../debain-setup/">
       
       
-        <link rel="next" href="../%E5%9C%A8alias%E5%91%BD%E4%BB%A4%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%8D%95%E5%BC%95%E5%8F%B7/">
+        <link rel="next" href="../wsl/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>使用shell快速生成字符串的哈希值 - reading-note</title>
+        <title>ssh - reading-note</title>
       
     
     
@@ -77,11 +77,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#_1" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -112,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              使用shell快速生成字符串的哈希值
+              ssh
             
           </span>
         </div>
@@ -1042,10 +1037,17 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../ssh/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1061,6 +1063,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1154,35 +1157,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    使用shell快速生成字符串的哈希值
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../%E4%BD%BF%E7%94%A8shell%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC/" class="md-nav__link">
         
   
   
@@ -1198,46 +1176,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        使用方式
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        命令解释
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1492,36 +1430,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        使用方式
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        命令解释
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1546,18 +1454,15 @@
   
 
 
-  <h1>使用shell快速生成字符串的哈希值</h1>
+  <h1>ssh</h1>
 
-<h3 id="_1">使用方式<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;dev&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sha256sum<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="s1">&#39; &#39;</span><span class="w"> </span>-f1
-</code></pre></div><br />
-此外也可以使用 <code>md5sum</code>、<code>sha224sum</code>、<code>sha1sum</code> 等，替换命令中的 <code>sha256sum</code> 即可。</p>
-<h3 id="_2">命令解释<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<ol>
-<li>echo 将字符串 <code>"dev"</code> 通过管道符传递给标准输出，<code>-n</code> 选项可以去掉多余的换行符</li>
-<li>sha256sum 本身接收的参数是文件路径，如果不指定，则从标准输出中读取内容用于计算摘要值</li>
-<li>cut 从标准输出中获取到 <code>sha256sum</code> 的结果，由于结果中同时也包含了文件名（在本例中文件名为 <code>-</code>），通过指定分割符 <code>-d' '</code> 将输出拆分为两列，并通过 <code>-f1</code> 打印第一列，即字符串的摘要值</li>
-</ol>
+<p>跳过首次连接时出现的安全提示：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh<span class="w"> </span>-o<span class="w"> </span><span class="nv">StrictHostKeyChecking</span><span class="o">=</span>no<span class="w"> </span>-o<span class="w"> </span><span class="nv">UserKnownHostsFile</span><span class="o">=</span>/dev/null<span class="w"> </span>user@hostname
+</code></pre></div>
+<ul>
+<li>StrictHostKeyChecking=no: 告诉 SSH 不要检查主机密钥</li>
+<li>UserKnownHostsFile=/dev/null 或 UserKnownHostsFile=/dev/null -o GlobalKnownHostsFile=/dev/null: 告诉 SSH 不使用或更新任何 known_hosts 文件</li>
+</ul>
 
 
 
