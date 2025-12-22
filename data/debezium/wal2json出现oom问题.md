@@ -97,6 +97,21 @@ services:
       STATUS_STORAGE_TOPIC: my_connect_statuses
 ```
 
+修改用户密码：
+
+```shell
+docker exec postgres psql -U postgres -c "ALTER USER postgres WITH PASSWORD 'postgres';"
+```
+
+配置用户 replication 权限：
+
+```shell
+docker exec postgres /bin/sh -c "echo 'host    replication     postgres        0.0.0.0/0           md5' >> /data/pg_hba.conf"
+# 配置后需要重启
+docker exec -u postgres postgres /usr/lib/postgresql/9.6/bin/pg_ctl reload -D /data 
+```
+
+
 ## 测试数据
 
 ```sql

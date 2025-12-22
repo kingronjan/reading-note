@@ -1,0 +1,8 @@
+跳过首次连接时出现的安全提示：
+
+```shell
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null user@hostname
+```
+
+- StrictHostKeyChecking=no: 告诉 SSH 不要检查主机密钥
+- UserKnownHostsFile=/dev/null 或 UserKnownHostsFile=/dev/null -o GlobalKnownHostsFile=/dev/null: 告诉 SSH 不使用或更新任何 known_hosts 文件
