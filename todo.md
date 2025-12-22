@@ -11,6 +11,7 @@
 
 ### 阅读
 
+- [ ] [与 Claude 一起编写真实代码的现场笔记 - diwank 的空间](https://diwank.space/field-notes-from-shipping-real-code-with-claude)
 - [ ] [程序员阅读清单：我喜欢的 100 篇技术文章（21-40） | Piglei](https://www.piglei.com/articles/programmer-reading-list-2/)
 - [ ] [程序员阅读清单：我喜欢的 100 篇技术文章（41-50） | Piglei](https://www.piglei.com/articles/programmer-reading-list-3/)
 
@@ -29,8 +30,6 @@
 
 
 ### 游戏
-
-- [ ] 波斯王子：Rogue 
 
 
 ### 电影
