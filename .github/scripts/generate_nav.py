@@ -18,39 +18,6 @@ EXCLUDED_PATHS = [
 ]
 
 
-def find_first_md_path(nav_structure):
-    """
-    Recursively finds the path of the first markdown file in the nav_structure.
-    The nav_structure is a list of dictionaries, where each dict can have:
-    - {'Title': 'path/to/file.md'}
-    - {'DirectoryTitle': [{'SubTitle': 'path/to/subfile.md'}, ...]}
-    """
-    if not nav_structure:
-        return None
-
-    first_entry = nav_structure[0]
-    if isinstance(first_entry, dict):
-        for key, value in first_entry.items():
-            if isinstance(value, str) and value.endswith(".md"):
-                return value
-            elif isinstance(value, list):
-                # Recurse into nested list (directory content)
-                nested_path = find_first_md_path(value)
-                if nested_path:
-                    return nested_path
-    return None
-
-
-def redirect_path_to_url(md_path):
-    """
-    Converts a markdown file path (e.g., 'ai/gemini.md') to an MkDocs URL format
-    (e.g., 'ai/gemini/').
-    """
-    if md_path.endswith(".md"):
-        return md_path[:-3] + "/"
-    return md_path
-
-
 def as_title(path):
     """Convert a file or directory path to a human-readable title."""
     title = os.path.basename(path)
@@ -98,6 +65,26 @@ def create_nav_entry(path):
     return None
 
 
+def generate_index_markdown(nav_structure, level=0):
+    markdown = ""
+    for entry in nav_structure:
+        for title, value in entry.items():
+            if isinstance(value, str):  # it's a file
+                # Don't link to index.md itself
+                if value == "index.md":
+                    continue
+                # Indentation for list level
+                indent = "  " * level
+                # Create markdown link, assuming it will be placed in the root of docs
+                link_path = value[:-3] + "/"
+                markdown += f"{indent}- [{title}]({link_path})\n"
+            elif isinstance(value, list):  # it's a directory
+                indent = "  " * level
+                markdown += f"{indent}- {title}\n"
+                markdown += generate_index_markdown(value, level + 1)
+    return markdown
+
+
 def main():
     """Main function to generate and update the navigation."""
     with open(MKDOCS_YML_PATH, "r", encoding="utf-8") as f:
@@ -119,19 +106,19 @@ def main():
     # Separate directories and files to ensure dirs come first
     dirs = []
     files = []
-    todo_items = []
+    todo_files = []
     for item in root_items:
         if item in EXCLUDED_PATHS:
             continue
         if os.path.isdir(item):
             dirs.append(item)
         elif item == TODO_MD_FILENAME:
-            todo_items.append(item)
+            todo_files.append(item)
         elif item.endswith(".md"):
             files.append(item)
 
-    # Process todo first, then directories, then files
-    all_items = todo_items + dirs + files
+    # Process directories, then files
+    all_items = todo_files + dirs + files
     for item in all_items:
         entry = create_nav_entry(item)
         if entry:
@@ -143,20 +130,15 @@ def main():
     # Add the generated nav to the config
     config["nav"] = nav_structure
 
-    # Find the first markdown file path for redirection
-    first_md_path = find_first_md_path(nav_structure)
-    if first_md_path:
-        # Convert markdown path to a URL-friendly format for redirect
-        redirect_url = redirect_path_to_url(first_md_path)
+    # Generate the content for index.md
+    index_md_content = "# Home\n\n"
+    index_md_content += generate_index_markdown(nav_structure)
 
-        # Create an index.md in the docs directory that redirects to the first item
-        # Change back to the docs directory to write index.md
-        os.chdir(docs_dir)
-        with open("index.md", "w", encoding="utf-8") as f:
-            f.write(
-                f'<!DOCTYPE html>\n<html>\n<head>\n<meta http-equiv="refresh" content="0; url=./{redirect_url}">\n</head>\n<body>\n<p>Redirecting to <a href="./{redirect_url}">{redirect_url}</a></p>\n</body>\n</html>'
-            )
-        os.chdir("..")  # Change back to the project root
+    # Write the index.md file
+    os.chdir(docs_dir)
+    with open("index.md", "w", encoding="utf-8") as f:
+        f.write(index_md_content)
+    os.chdir("..")  # Change back to the project root
 
     with open(MKDOCS_YML_PATH, "w", encoding="utf-8") as f:
         yaml.dump(config, f, allow_unicode=True, sort_keys=False)
