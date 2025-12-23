@@ -138,6 +138,12 @@ def main():
     os.chdir(docs_dir)
     with open("index.md", "w", encoding="utf-8") as f:
         f.write(index_md_content)
+        
+        print("Generated index.md with the following content:")
+        print(index_md_content)
+
+        print(f'Current dirs in {docs_dir}: {os.listdir(".")}')
+
     os.chdir("..")  # Change back to the project root
 
     with open(MKDOCS_YML_PATH, "w", encoding="utf-8") as f:
