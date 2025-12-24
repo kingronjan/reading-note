@@ -6,7 +6,15 @@
 
 ### 面试资料
 
-- [Python/SQL/Django 面試題 - HackMD](https://hackmd.io/@_FqBW8dGS8a5ZqhdMwvpuA/ByYoWaxfD#Python%E7%89%B9%E6%80%A7%EF%BC%9A)
+- [ ] [Python/SQL/Django 面試題 - HackMD](https://hackmd.io/@_FqBW8dGS8a5ZqhdMwvpuA/ByYoWaxfD#Python%E7%89%B9%E6%80%A7%EF%BC%9A)
+
+### 工作
+
+- [ ] [如何培养助你找到工作的 Python 技能 – Real Python](https://realpython.com/python-skills/)
+  - [ ] 核心 Python 语法	
+  - [ ] Git 版本控制
+  - [ ] 人工智能辅助编码
+  - [ ] [面试经典 150 题 - 学习计划 - 力扣（LeetCode）全球极客挚爱的技术成长平台](https://leetcode.cn/studyplan/top-interview-150/)
 
 
 ### 阅读
@@ -21,6 +29,7 @@
 - [ ] drfparamter
 - [ ] skywalker
   - [ ] [danimelchor/clypi: Your all-in-one for beautiful, prod-ready CLIs](https://github.com/danimelchor/clypi)
+  - [ ] [Maxteabag/sqlit: A user friendly TUI for SQL databases. Written in python. Supports SQL server, Mysql, PostreSQL and SQLite, Turso and more.](https://github.com/Maxteabag/sqlit?utm_source=www.pythonweekly.com&utm_medium=newsletter&utm_campaign=python-weekly-issue-726-december-18-2025)
   
 
 ### 学习
