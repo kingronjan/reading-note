@@ -392,3 +392,68 @@ mv $HOME/音乐 $HOME/Music
 mv $HOME/图片 $HOME/Pictures
 mv $HOME/视频 $HOME/Videos
 ```
+
+## vincinae (类似于 spotlight 的搜索、启动工具)
+
+下载地址：https://github.com/vicinaehq/vicinae/releases
+
+下载后的文件格式为 appimage，需要赋予执行权限：
+
+```shell
+# 放入 app 目录
+$ mkdir -p /home/kingron/app/vincinae
+$ mv Vicinae-78ef504aa-x86_64.AppImage /home/kingron/app/vincinae/Vicinae-x86_64.AppImage
+
+# 给予执行权限
+$ chmod +x Vicinae-78ef504aa-x86_64.AppImage
+
+# 建立软链接 便于后续版本升级
+$ ln -s Vicinae-78ef504aa-x86_64.AppImage vicinae.appimage
+```
+
+创建 systemd，用于启动 vicinae server：
+
+```shell
+# 1. 启用 linger
+# linger 是 systemd 的一个功能，用于控制用户服务在用户登出后是否继续运行
+# 打开后，即使偶尔登出，用户服务也会继续保持运行
+sudo loginctl enable-linger kingron
+
+# 2. 创建用户服务（如果还没创建）
+mkdir -p ~/.config/systemd/user
+cat > ~/.config/systemd/user/vicinae.service << 'EOF'
+[Unit]
+Description=Vicinae Launcher Service
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/home/kingron/app/vincinae/vicinae.appimage server
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
+EOF
+
+# 3. 启用服务
+systemctl --user daemon-reload
+systemctl --user enable vicinae
+systemctl --user start vicinae
+```
+
+设置快捷键启动界面：
+
+在 设置 => 键盘 => 键盘快捷键 => 自定义快捷键中新增：
+
+```
+名称
+	vicinae
+
+命令
+	/home/kingron/app/vincinae/vicinae.appimage toggle
+
+快捷键
+	windows + 空格
+```
+
