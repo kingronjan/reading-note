@@ -1,0 +1,5 @@
+repos:
+  - repo: https://github.com/kingronjan/pangu-precommit
+    rev: 0.1.4
+    hooks:
+      - id: pangu

@@ -13,6 +13,7 @@ EXCLUDED_PATHS = [
     "docs",
     "README.md",
     ".gitignore",
+    ".pre-commit-config.yaml",
     "CNAME",
     MKDOCS_YML_PATH,
 ]
