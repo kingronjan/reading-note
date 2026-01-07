@@ -393,7 +393,7 @@ mv $HOME/图片 $HOME/Pictures
 mv $HOME/视频 $HOME/Videos
 ```
 
-## vincinae (类似于 spotlight 的搜索、启动工具)
+## vicinae (类似于 spotlight 的搜索、启动工具)
 
 下载地址：https://github.com/vicinaehq/vicinae/releases
 
@@ -428,6 +428,8 @@ After=graphical-session.target
 
 [Service]
 Type=simple
+# 启动前等待 5s，避免启动时图形环境还没有加载完成导致启动失败
+ExecStartPre=/usr/bin/sleep 5
 ExecStart=/home/kingron/app/vincinae/vicinae.appimage server
 Restart=on-failure
 RestartSec=5
