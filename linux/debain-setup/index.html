@@ -1376,10 +1376,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#vincinae-spotlight" class="md-nav__link">
+  <a href="#vicinae-spotlight" class="md-nav__link">
     <span class="md-ellipsis">
       
-        vincinae (类似于 spotlight 的搜索、启动工具)
+        vicinae (类似于 spotlight 的搜索、启动工具)
       
     </span>
   </a>
@@ -1819,10 +1819,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#vincinae-spotlight" class="md-nav__link">
+  <a href="#vicinae-spotlight" class="md-nav__link">
     <span class="md-ellipsis">
       
-        vincinae (类似于 spotlight 的搜索、启动工具)
+        vicinae (类似于 spotlight 的搜索、启动工具)
       
     </span>
   </a>
@@ -2152,7 +2152,7 @@
 <a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>mv<span class="w"> </span><span class="nv">$HOME</span>/图片<span class="w"> </span><span class="nv">$HOME</span>/Pictures
 <a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>mv<span class="w"> </span><span class="nv">$HOME</span>/视频<span class="w"> </span><span class="nv">$HOME</span>/Videos
 </code></pre></div>
-<h2 id="vincinae-spotlight">vincinae (类似于 spotlight 的搜索、启动工具)<a class="headerlink" href="#vincinae-spotlight" title="Permanent link">&para;</a></h2>
+<h2 id="vicinae-spotlight">vicinae (类似于 spotlight 的搜索、启动工具)<a class="headerlink" href="#vicinae-spotlight" title="Permanent link">&para;</a></h2>
 <p>下载地址：https://github.com/vicinaehq/vicinae/releases</p>
 <p>下载后的文件格式为 appimage，需要赋予执行权限：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># 放入 app 目录</span>
@@ -2180,18 +2180,20 @@
 <a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>
 <a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a><span class="s">[Service]</span>
 <a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a><span class="s">Type=simple</span>
-<a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a><span class="s">ExecStart=/home/kingron/app/vincinae/vicinae.appimage server</span>
-<a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a><span class="s">Restart=on-failure</span>
-<a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a><span class="s">RestartSec=5</span>
-<a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a>
-<a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a><span class="s">[Install]</span>
-<a id="__codelineno-24-20" name="__codelineno-24-20" href="#__codelineno-24-20"></a><span class="s">WantedBy=default.target</span>
-<a id="__codelineno-24-21" name="__codelineno-24-21" href="#__codelineno-24-21"></a><span class="s">EOF</span>
-<a id="__codelineno-24-22" name="__codelineno-24-22" href="#__codelineno-24-22"></a>
-<a id="__codelineno-24-23" name="__codelineno-24-23" href="#__codelineno-24-23"></a><span class="c1"># 3. 启用服务</span>
-<a id="__codelineno-24-24" name="__codelineno-24-24" href="#__codelineno-24-24"></a>systemctl<span class="w"> </span>--user<span class="w"> </span>daemon-reload
-<a id="__codelineno-24-25" name="__codelineno-24-25" href="#__codelineno-24-25"></a>systemctl<span class="w"> </span>--user<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>vicinae
-<a id="__codelineno-24-26" name="__codelineno-24-26" href="#__codelineno-24-26"></a>systemctl<span class="w"> </span>--user<span class="w"> </span>start<span class="w"> </span>vicinae
+<a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a><span class="s"># 启动前等待 5s，避免启动时图形环境还没有加载完成导致启动失败</span>
+<a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a><span class="s">ExecStartPre=/usr/bin/sleep 5</span>
+<a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a><span class="s">ExecStart=/home/kingron/app/vincinae/vicinae.appimage server</span>
+<a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a><span class="s">Restart=on-failure</span>
+<a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a><span class="s">RestartSec=5</span>
+<a id="__codelineno-24-20" name="__codelineno-24-20" href="#__codelineno-24-20"></a>
+<a id="__codelineno-24-21" name="__codelineno-24-21" href="#__codelineno-24-21"></a><span class="s">[Install]</span>
+<a id="__codelineno-24-22" name="__codelineno-24-22" href="#__codelineno-24-22"></a><span class="s">WantedBy=default.target</span>
+<a id="__codelineno-24-23" name="__codelineno-24-23" href="#__codelineno-24-23"></a><span class="s">EOF</span>
+<a id="__codelineno-24-24" name="__codelineno-24-24" href="#__codelineno-24-24"></a>
+<a id="__codelineno-24-25" name="__codelineno-24-25" href="#__codelineno-24-25"></a><span class="c1"># 3. 启用服务</span>
+<a id="__codelineno-24-26" name="__codelineno-24-26" href="#__codelineno-24-26"></a>systemctl<span class="w"> </span>--user<span class="w"> </span>daemon-reload
+<a id="__codelineno-24-27" name="__codelineno-24-27" href="#__codelineno-24-27"></a>systemctl<span class="w"> </span>--user<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>vicinae
+<a id="__codelineno-24-28" name="__codelineno-24-28" href="#__codelineno-24-28"></a>systemctl<span class="w"> </span>--user<span class="w"> </span>start<span class="w"> </span>vicinae
 </code></pre></div>
 <p>设置快捷键启动界面：</p>
 <p>在 设置 =&gt; 键盘 =&gt; 键盘快捷键 =&gt; 自定义快捷键中新增：</p>
