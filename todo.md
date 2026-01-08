@@ -19,7 +19,8 @@
 
 ### 阅读
 
-- [ ] [与 Claude 一起编写真实代码的现场笔记 - diwank 的空间](https://diwank.space/field-notes-from-shipping-real-code-with-claude)
+- [ ] 妈妈测试 (the mom test)
+- [x] [与 Claude 一起编写真实代码的现场笔记 - diwank 的空间](https://diwank.space/field-notes-from-shipping-real-code-with-claude)
 - [ ] [程序员阅读清单：我喜欢的 100 篇技术文章（21-40） | Piglei](https://www.piglei.com/articles/programmer-reading-list-2/)
 - [ ] [程序员阅读清单：我喜欢的 100 篇技术文章（41-50） | Piglei](https://www.piglei.com/articles/programmer-reading-list-3/)
 
@@ -27,9 +28,7 @@
 ### 编程
 
 - [ ] drfparamter
-- [ ] skywalker
-  - [ ] [danimelchor/clypi: Your all-in-one for beautiful, prod-ready CLIs](https://github.com/danimelchor/clypi)
-  - [ ] [Maxteabag/sqlit: A user friendly TUI for SQL databases. Written in python. Supports SQL server, Mysql, PostreSQL and SQLite, Turso and more.](https://github.com/Maxteabag/sqlit?utm_source=www.pythonweekly.com&utm_medium=newsletter&utm_campaign=python-weekly-issue-726-december-18-2025)
+- [x] skywalker just use [Maxteabag/sqlit](https://github.com/Maxteabag/sqlit)
   
 
 ### 学习
@@ -43,4 +42,4 @@
 
 ### 电影
 
-- [ ] 疯狂动物城2
+- [x] 疯狂动物城2
