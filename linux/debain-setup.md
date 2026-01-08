@@ -22,7 +22,7 @@ sudo apt install ibus-rime
 重启后在系统输入法中增加汉语（中文）的输入法即可。
 
 ### 使用集成配置（oh-my-rime）
-参考 [配置教程](https://www.mintimate.cc/zh/guide/)，配置简单，使用体验很好，比较符合之前使用搜狗等的使用习惯，支持 emoji 表情输入。唯一的缺点是在旧电脑上运行的话，占用的内存相对于简单的自定义配置会比较多一些。
+参考 [配置教程](https://www.mintimate.cc/zh/guide/)，配置简单，使用体验很好，比较符合之前使用搜狗等的使用习惯，支持 emoji 表情输入。
 
 ```shell
 # 下载仓库文件
