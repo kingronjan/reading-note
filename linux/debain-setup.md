@@ -21,6 +21,25 @@ sudo apt install ibus-rime
 
 重启后在系统输入法中增加汉语（中文）的输入法即可。
 
+### 使用集成配置（oh-my-rime）
+参考 [配置教程](https://www.mintimate.cc/zh/guide/)，配置简单，使用体验很好，比较符合之前使用搜狗等的使用习惯，支持 emoji 表情输入。唯一的缺点是在旧电脑上运行的话，占用的内存相对于简单的自定义配置会比较多一些。
+
+```shell
+# 下载仓库文件
+curl -o oh-my-rime-main.zip https://codeload.github.com/Mintimate/oh-my-rime/zip/refs/heads/main
+
+# 解压
+unzip oh-my-rime-main.zip
+
+# 将配置拷贝到 rime 的配置目录
+cp -r oh-my-rime-main/* ~/.config/ibus/rime/
+```
+
+完成后重新部署即可生效。
+
+
+### 自定义配置
+
 设置首选简体中文配置 参考： [rime设置为默认简体 - 喵星人聚居地](https://miaostay.com/2018/11/rime%E8%AE%BE%E7%BD%AE%E4%B8%BA%E9%BB%98%E8%AE%A4%E7%AE%80%E4%BD%93/)：
 
 ```bash
