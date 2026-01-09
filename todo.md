@@ -3,6 +3,10 @@
 - [ ] [furkan/dockerlings: learn docker in your terminal, with bite sized exercises](https://github.com/furkan/dockerlings)
 - [ ] [Git Internals - Learn by Building Your Own Git](https://www.leshenko.net/p/ugit/#)
 
+### blog
+
+- [ ] 参考[使用 AI 和 Python 生成动画像素图](https://sarthakmishra.com/blog/building-animated-sprite-hero)，更新博客图标和头像
+
 
 ### 面试资料
 
