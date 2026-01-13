@@ -2,15 +2,28 @@
 
 # ai 工具
 
-我目前在用的有两款：
+我目前在用的有三款：
 
 - [gemini cli](https://github.com/google-gemini/gemini-cli)
 - [iflow cli](https://github.com/iflow-ai/iflow-cli)
+- [claude code](https://github.com/anthropics/claude-code) 国内使用[参考教程](https://www.cnblogs.com/javastack/p/19217578)，使用的是 doubao-seed-code 模型
 
 我偏向使用 cli-like 的 ai 工具，在终端看着它自己运行并解决问题体验挺好的。对于一些简单的问题，比如：pgrep 的用法？我会倾向于使用网页版，毕竟网页版的页面进入很快。
 
-我也尝试过 Claude code，总体而言我很满意，但是上面两款免费的产品对我来说已经够用了，没必要再去使用付费产品。
+各个工具的官方文档其实也详细介绍了各种使用技巧，值得学习，比如：
 
+- [claude code 常用工作流程](https://code.claude.com/docs/en/common-workflows)
+
+# 用 git worktree 让工具并行
+
+这里引用 claude code 官方文档上的描述：
+
+- 每个工作树都有其独立的文件状态，这使其非常适合并行 Claude Code 会话
+- 在一个工作树中所做的更改不会影响其他工作树，从而防止 Claude 实例之间相互干扰
+- 所有工作树共享相同的 Git 历史记录和远程连接
+- 对于长时间运行的任务，您可以让 Claude 在一个工作树中工作，而您则在另一个工作树中继续开发
+- 使用描述性的目录名称，以便轻松识别每个工作树所对应的任务
+- 请记住，在每个新的工作树中，都要根据项目配置初始化开发环境
 
 # 重视测试
 
@@ -33,8 +46,10 @@
 
 在第一次生成提案时，可能会反复的和 ai 沟通，确保生成的结果是准确且符合预期的，那么在这之后，可以将沟通的内容总结出来，改进生成提案命令所使用的提示词。
 
+另外最近看到一个只包含规范的开源项目：[whenwords](https://github.com/dbreunig/whenwords)，作者本质上仅仅开源了规范，而我们可以根据这份规范使用任意 ai 模型生成想要的代码语言。背景和相关思考可以参见：[一个无需代码的软件库](https://www.dbreunig.com/2026/01/08/a-software-library-with-no-code.html)
+
 # 提示词依然很重要
 
 值得参考的提示词：
 
-- [分享个人在用的IFLOW 编程全局提示词 - iFlow CLI / 实践探索 - 心流AI交流社区](https://vibex.iflow.cn/t/topic/257)
+- [分享个人在用的 IFLOW 编程全局提示词 - iFlow CLI / 实践探索 - 心流 AI 交流社区](https://vibex.iflow.cn/t/topic/257)
