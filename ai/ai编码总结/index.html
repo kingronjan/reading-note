@@ -1313,13 +1313,27 @@
 
 <p>本文记录了我使用 ai 编码工具的一些心得体会，仍在完善中，希望对你也有帮助，如果你看完有任何想法，也欢迎和我沟通。</p>
 <h1 id="ai">ai 工具<a class="headerlink" href="#ai" title="Permanent link">&para;</a></h1>
-<p>我目前在用的有两款：</p>
+<p>我目前在用的有三款：</p>
 <ul>
 <li><a href="https://github.com/google-gemini/gemini-cli">gemini cli</a></li>
 <li><a href="https://github.com/iflow-ai/iflow-cli">iflow cli</a></li>
+<li><a href="https://github.com/anthropics/claude-code">claude code</a> 国内使用<a href="https://www.cnblogs.com/javastack/p/19217578">参考教程</a>，使用的是 doubao-seed-code 模型</li>
 </ul>
 <p>我偏向使用 cli-like 的 ai 工具，在终端看着它自己运行并解决问题体验挺好的。对于一些简单的问题，比如：pgrep 的用法？我会倾向于使用网页版，毕竟网页版的页面进入很快。</p>
-<p>我也尝试过 Claude code，总体而言我很满意，但是上面两款免费的产品对我来说已经够用了，没必要再去使用付费产品。</p>
+<p>各个工具的官方文档其实也详细介绍了各种使用技巧，值得学习，比如：</p>
+<ul>
+<li><a href="https://code.claude.com/docs/en/common-workflows">claude code 常用工作流程</a></li>
+</ul>
+<h1 id="git-worktree">用 git worktree 让工具并行<a class="headerlink" href="#git-worktree" title="Permanent link">&para;</a></h1>
+<p>这里引用 claude code 官方文档上的描述：</p>
+<ul>
+<li>每个工作树都有其独立的文件状态，这使其非常适合并行 Claude Code 会话</li>
+<li>在一个工作树中所做的更改不会影响其他工作树，从而防止 Claude 实例之间相互干扰</li>
+<li>所有工作树共享相同的 Git 历史记录和远程连接</li>
+<li>对于长时间运行的任务，您可以让 Claude 在一个工作树中工作，而您则在另一个工作树中继续开发</li>
+<li>使用描述性的目录名称，以便轻松识别每个工作树所对应的任务</li>
+<li>请记住，在每个新的工作树中，都要根据项目配置初始化开发环境</li>
+</ul>
 <h1 id="_1">重视测试<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>测试可以让 ai 快速的验证自己写的代码有无问题，如果你在写开始项目之前已经有非常完善的测试，那么完全可以放心的让 ai 遵循测试驱动开发的流程来工作，只要让 ai 别修改测试文件就行，如果它认为确实有必要修改，那么也要先征得你的同意。</p>
 <h1 id="_2">氛围编程<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
@@ -1333,10 +1347,11 @@
 </ul>
 <p>我目前仅仅使用过 openspec，用下来发现这仍然时比较考验模型本身能力的，此外，虽然 openspec 本身的命令有标准的提示词，但我们仍然可以对其修改，以符合自己的项目实际情况，比如在生成提案时，需要明确的给出表结构语句、涉及的 sql 等，可以减少应用提案时的歧义。</p>
 <p>在第一次生成提案时，可能会反复的和 ai 沟通，确保生成的结果是准确且符合预期的，那么在这之后，可以将沟通的内容总结出来，改进生成提案命令所使用的提示词。</p>
+<p>另外最近看到一个只包含规范的开源项目：<a href="https://github.com/dbreunig/whenwords">whenwords</a>，作者本质上仅仅开源了规范，而我们可以根据这份规范使用任意 ai 模型生成想要的代码语言。背景和相关思考可以参见：<a href="https://www.dbreunig.com/2026/01/08/a-software-library-with-no-code.html">一个无需代码的软件库</a></p>
 <h1 id="_4">提示词依然很重要<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
 <p>值得参考的提示词：</p>
 <ul>
-<li><a href="https://vibex.iflow.cn/t/topic/257">分享个人在用的IFLOW 编程全局提示词 - iFlow CLI / 实践探索 - 心流AI交流社区</a></li>
+<li><a href="https://vibex.iflow.cn/t/topic/257">分享个人在用的 IFLOW 编程全局提示词 - iFlow CLI / 实践探索 - 心流 AI 交流社区</a></li>
 </ul>
 
 
