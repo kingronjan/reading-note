@@ -1,5 +1,5 @@
 repos:
   - repo: https://github.com/kingronjan/pangumd
-    rev: 0.1.1
+    rev: 0.1.2
     hooks:
       - id: pangumd
