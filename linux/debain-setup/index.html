@@ -1414,6 +1414,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bash 自动补全忽略大小写
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1885,6 +1896,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bash 自动补全忽略大小写
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2274,6 +2296,23 @@
 <a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>
 <a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>快捷键
 <a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>    windows + 空格
+</code></pre></div>
+<h2 id="bash">bash 自动补全忽略大小写<a class="headerlink" href="#bash" title="Permanent link">&para;</a></h2>
+<p>针对全局的配置写入到<code>/etc/inputrc</code>，针对用户的配置写入到 <code>~/.inputrc</code> 中。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/inputrc<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="s"># --- Bash 自动补全优化设置 ---</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="s"># 1. 补全时忽略大小写 (例如输入 cd /u 可以补全 /User 或 /usr)</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="s">set completion-ignore-case on</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="s"># 2. 如果匹配项模糊，按一次 Tab 就显示所有候选（默认需要按两次）</span>
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="s">set show-all-if-ambiguous on</span>
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a><span class="s"># 3. 补全备选项超过 50 个时，先询问是否显示，防止大量文件刷屏</span>
+<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a><span class="s">set completion-query-items 50</span>
+<a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a><span class="s"># 4. 如果候选项超过一屏，允许使用类似 &#39;less&#39; 的方式分页查看</span>
+<a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a><span class="s">set page-completions on</span>
+<a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a><span class="s">EOF</span>
+<a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a>
+<a id="__codelineno-27-13" name="__codelineno-27-13" href="#__codelineno-27-13"></a><span class="c1"># 让当前终端立即加载新配置</span>
+<a id="__codelineno-27-14" name="__codelineno-27-14" href="#__codelineno-27-14"></a><span class="nb">bind</span><span class="w"> </span>-f<span class="w"> </span>/etc/inputrc
 </code></pre></div>
 
 
