@@ -478,3 +478,25 @@ systemctl --user start vicinae
 	windows + 空格
 ```
 
+
+## bash 自动补全忽略大小写
+
+针对全局的配置写入到`/etc/inputrc`，针对用户的配置写入到 `~/.inputrc` 中。
+
+```bash
+sudo tee -a /etc/inputrc <<EOF
+# --- Bash 自动补全优化设置 ---
+# 1. 补全时忽略大小写 (例如输入 cd /u 可以补全 /User 或 /usr)
+set completion-ignore-case on
+# 2. 如果匹配项模糊，按一次 Tab 就显示所有候选（默认需要按两次）
+set show-all-if-ambiguous on
+# 3. 补全备选项超过 50 个时，先询问是否显示，防止大量文件刷屏
+set completion-query-items 50
+# 4. 如果候选项超过一屏，允许使用类似 'less' 的方式分页查看
+set page-completions on
+EOF
+
+# 让当前终端立即加载新配置
+bind -f /etc/inputrc
+```
+
